@@ -17,6 +17,7 @@ import flash.filesystem.File;
 import flash.filesystem.FileMode;
 import flash.filesystem.FileStream;
 import flash.geom.Matrix;
+import flash.geom.Point;
 import flash.geom.Rectangle;
 import flash.text.TextField;
 import flash.utils.ByteArray;
@@ -36,11 +37,16 @@ import sliz.miniui.layouts.BoxLayout;
 
 public class ImageTool extends Sprite {
 	private var bg:Panel;
-	private var formatTab:TabPanel;
 	private var outPut:TextField=new TextField();
+
+	private var widthInput:LabelInput;
+	private var heightInput:LabelInput;
+	private var scaleXInput:LabelInput;
+	private var scaleYInput:LabelInput;
+	private var isTrim:Checkbox;
+	private var formatTab:TabPanel;
 	private var jxrQ:LabelInput;
 	private var jpgQ:LabelInput;
-	private var isTrim:Checkbox;
     public function ImageTool() {
 		println("image tool v 0.1");
 		println("drag image file here");
@@ -59,10 +65,19 @@ public class ImageTool extends Sprite {
 
 		var window:Window=new Window(this,281,13);
 
+		widthInput=new LabelInput("width ");
+		window.add(widthInput);
+		heightInput=new LabelInput("height");
+		window.add(heightInput);
+		scaleXInput=new LabelInput("scaleX");
+		window.add(scaleXInput);
+		scaleYInput=new LabelInput("scaleY");
+		window.add(scaleYInput);
+
 		isTrim=new Checkbox("trim");
 		window.add(isTrim);
 
-		formatTab=new TabPanel(["jxr","jpg","png"]);
+		formatTab=new TabPanel(["jxr","jpg","png","atf"]);
 
 		jxrQ=new LabelInput("quantization");
 		jxrQ.setValue("20")
@@ -136,6 +151,17 @@ public class ImageTool extends Sprite {
 				var extension:String= file.extension;
 				var name:String = file.name.substr(0,file.name.length-extension.length-1)+"."+option.extension;
 
+				var size:Point=new Point(bmd.width,bmd.height);
+				var width:int=int(widthInput.getValue());
+				var height:int=int(heightInput.getValue());
+				var scaleX:Number=Number(scaleXInput.getValue());
+				var scaleY:Number=Number(scaleYInput.getValue());
+				if(width!=0)size.x=width;
+				if(height!=0)size.y=height;
+				if(scaleX!=0)size.x=Math.ceil(bmd.width*scaleX);
+				if(scaleY!=0)size.y=Math.ceil(bmd.height*scaleY);
+				bmd=resize(bmd,size);
+
 				if(isTrim.getToggle()){
 					var bwt:BitmapDataWithTrimInfo=trim(bmd);
 					bmd=bwt.bmd;
@@ -148,6 +174,12 @@ public class ImageTool extends Sprite {
 		}
 		println("over");
 		println();
+	}
+
+	private function resize(bmd:BitmapData,size:Point):BitmapData{
+		var bmd2:BitmapData=new BitmapData(size.x,size.y,bmd.transparent,0);
+		bmd2.draw(bmd, new Matrix(bmd2.width / bmd.width, 0, 0, bmd2.height / bmd.height), null, null, null, true);
+		return bmd2;
 	}
 
 	private function trim(bmd:BitmapData):BitmapDataWithTrimInfo{
