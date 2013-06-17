@@ -107,6 +107,7 @@ public class ImageTool extends Sprite {
 			option.extension="wdp";
 		}else if(formatTab.getPanel(1).stage){//jpg
 			var jpgOption:JPEGEncoderOptions=new JPEGEncoderOptions();
+			jpgOption.quality=Number(jpgQ.getValue());
 			option.option=jpgOption;
 			option.extension="jpg";
 		}else{//png
