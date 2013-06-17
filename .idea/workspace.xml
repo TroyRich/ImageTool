@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" name="Default" comment="" />
+    <list default="true" id="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" name="Default" comment="fds">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ImageTool.as" afterPath="$PROJECT_DIR$/src/ImageTool.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="ImageTool.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/ImageTool.as" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1371217100759" ignored="false" />
-    <file path="/fragment.js2" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1371216119678" ignored="false" />
+    <file path="/ImageTool.as" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1371433581784" ignored="false" />
+    <file path="/fragment.js2" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1371433336091" ignored="false" />
     <file path="/ImageOption.as" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1371216168746" ignored="false" />
-    <file path="/Dummy.txt" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1371217526592" ignored="false" />
+    <file path="/Dummy.txt" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1371433862899" ignored="false" />
+    <file path="/index.html" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1371297520200" ignored="false" />
+    <file path="/log.php" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1371283123971" ignored="false" />
+    <file path="/BitmapDataWithTrimInfo.as" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1371433397762" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +77,7 @@
       <file leaf-file-name="ImageTool.as" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ImageTool.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="130" column="32" selection-start="3855" selection-end="3855" vertical-scroll-proportion="0.21115065">
+            <state line="124" column="22" selection-start="3540" selection-end="3540" vertical-scroll-proportion="0.07175572">
               <folding>
                 <element signature="e#11#50#0" expanded="true" />
               </folding>
@@ -79,20 +85,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ImageOption.as" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ImageOption.as">
+      <file leaf-file-name="BitmapDataWithTrimInfo.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/BitmapDataWithTrimInfo.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="32" selection-start="253" selection-end="253" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="library.swf" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/lib/miniui_v1.0.swc!/library.swf">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="654" column="13" selection-start="25757" selection-end="25757" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="13" column="30" selection-start="326" selection-end="326" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#170#202#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -116,15 +115,16 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/src/ImageOption.as" />
+        <option value="F:/e/wg/log/bin/log.php" />
+        <option value="F:/e/wg/log/bin/index.html" />
+        <option value="$PROJECT_DIR$/src/BitmapDataWithTrimInfo.as" />
         <option value="$PROJECT_DIR$/src/ImageTool.as" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="width" value="960" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -133,7 +133,7 @@
     <OptionsSetting value="true" id="Update" />
     <OptionsSetting value="true" id="Status" />
     <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="1" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectReloadState">
@@ -269,6 +269,13 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
+      <JSDebuggerConfigurationSettings>
+        <option name="engineId" value="embedded" />
+        <option name="fileUrl" />
+      </JSDebuggerConfigurationSettings>
+      <method />
+    </configuration>
     <configuration default="true" type="FlashRunConfigurationType" factoryName="Flash App">
       <option name="BCName" value="" />
       <option name="IOSSimulatorSdkPath" value="" />
@@ -383,7 +390,7 @@
     <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="0" y="0" width="960" height="1040" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1150838" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -391,11 +398,11 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.096468106" sideWeight="0.97206706" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19652551" sideWeight="0.7906712" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.57765365" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.02793296" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20932879" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -448,7 +455,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" />
+    <option name="LAST_COMMIT_MESSAGE" value="fds" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -462,6 +469,7 @@
     <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
+    <MESSAGE value="fds" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -469,6 +477,34 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="jar://$PROJECT_DIR$/lib/miniui_v1.0.swc!/library.swf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="654" column="13" selection-start="25757" selection-end="25757" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ImageTool.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#11#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ImageOption.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="32" selection-start="253" selection-end="253" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/miniui_v1.0.swc!/library.swf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="654" column="13" selection-start="25757" selection-end="25757" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ImageTool.as">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -516,28 +552,45 @@
     </entry>
     <entry file="jar://D:/Program Files/FlashDevelop/Tools/ascsdk/frameworks/libs/air/airglobal.swc!/library.swf">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4292" column="13" selection-start="188346" selection-end="188346" vertical-scroll-proportion="0.33333334">
-          <folding />
-        </state>
+        <state line="4292" column="13" selection-start="188346" selection-end="188346" vertical-scroll-proportion="0.33333334" />
       </provider>
     </entry>
     <entry file="jar://$PROJECT_DIR$/lib/miniui_v1.0.swc!/library.swf">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="654" column="13" selection-start="25757" selection-end="25757" vertical-scroll-proportion="0.0">
+        <state line="654" column="13" selection-start="25757" selection-end="25757" vertical-scroll-proportion="0.022592152">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ImageOption.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="32" selection-start="253" selection-end="253" vertical-scroll-proportion="0.0">
+        <state line="10" column="32" selection-start="253" selection-end="253" vertical-scroll-proportion="0.088992976" />
+      </provider>
+    </entry>
+    <entry file="file://F:/e/wg/log/bin/log.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="33" selection-start="270" selection-end="270" vertical-scroll-proportion="0.20023419" />
+      </provider>
+    </entry>
+    <entry file="file://F:/e/wg/log/bin/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="114" column="35" selection-start="3019" selection-end="3019" vertical-scroll-proportion="0.1423221">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BitmapDataWithTrimInfo.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="30" selection-start="326" selection-end="326" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#170#202#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ImageTool.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="130" column="32" selection-start="3855" selection-end="3855" vertical-scroll-proportion="0.21115065">
+        <state line="124" column="22" selection-start="3540" selection-end="3540" vertical-scroll-proportion="0.07175572">
           <folding>
             <element signature="e#11#50#0" expanded="true" />
           </folding>

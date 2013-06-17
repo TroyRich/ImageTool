@@ -16,6 +16,8 @@ import flash.events.NativeDragEvent;
 import flash.filesystem.File;
 import flash.filesystem.FileMode;
 import flash.filesystem.FileStream;
+import flash.geom.Matrix;
+import flash.geom.Rectangle;
 import flash.text.TextField;
 import flash.utils.ByteArray;
 
@@ -23,6 +25,7 @@ import lz.net.LoaderBat;
 import lz.net.LoaderCell;
 
 import sliz.miniui.Button;
+import sliz.miniui.Checkbox;
 import sliz.miniui.LabelInput;
 import sliz.miniui.Panel;
 
@@ -37,6 +40,7 @@ public class ImageTool extends Sprite {
 	private var outPut:TextField=new TextField();
 	private var jxrQ:LabelInput;
 	private var jpgQ:LabelInput;
+	private var isTrim:Checkbox;
     public function ImageTool() {
 		println("image tool v 0.1");
 		println("drag image file here");
@@ -54,6 +58,9 @@ public class ImageTool extends Sprite {
 		stage_resizeHandler(null);
 
 		var window:Window=new Window(this,281,13);
+
+		isTrim=new Checkbox("trim");
+		window.add(isTrim);
 
 		formatTab=new TabPanel(["jxr","jpg","png"]);
 
@@ -128,6 +135,11 @@ public class ImageTool extends Sprite {
 				var file:File=loader.userData as File;
 				var extension:String= file.extension;
 				var name:String = file.name.substr(0,file.name.length-extension.length-1)+"."+option.extension;
+
+				if(isTrim.getToggle()){
+					var bwt:BitmapDataWithTrimInfo=trim(bmd);
+					bmd=bwt.bmd;
+				}
 				var bytes:ByteArray=bmd.encode(bmd.rect,option.option);
 				var url:String=file.parent.url+"/"+name;
 				save(bytes,url);
@@ -136,6 +148,14 @@ public class ImageTool extends Sprite {
 		}
 		println("over");
 		println();
+	}
+
+	private function trim(bmd:BitmapData):BitmapDataWithTrimInfo{
+		var bwt:BitmapDataWithTrimInfo=new BitmapDataWithTrimInfo();
+		bwt.rect = bmd.getColorBoundsRect(0xff000000, 0, false);
+		bwt.bmd = new BitmapData(bwt.rect.width, bwt.rect.height, bmd.transparent, 0);
+		bwt.bmd.draw(bmd, new Matrix(1, 0, 0, 1, -bwt.rect.x, -bwt.rect.y),null,null,null,true);
+		return bwt;
 	}
 
 	private function save(bytes:ByteArray,url:String):void{
