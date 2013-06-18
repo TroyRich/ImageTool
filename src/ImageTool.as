@@ -49,6 +49,7 @@ public class ImageTool extends Sprite {
 	private var jxrQ:LabelInput;
 	private var jpgQ:LabelInput;
 	private var outputInput:LabelInput;
+	private var config:ImageToolConfig=new ImageToolConfig();
     public function ImageTool() {
 		println("image tool v 0.1");
 		println("drag image file here");
@@ -82,7 +83,7 @@ public class ImageTool extends Sprite {
 		window.add(isPow2);
 
 		outputInput=new LabelInput("output");
-		outputInput.setValue("(url)/(name).(extension)");
+		outputInput.setValue(ImageToolConfig.DEF_OUTPUT);
 		println("output","(url)","(name)","(extension)");
 		window.add(outputInput);
 
@@ -96,8 +97,6 @@ public class ImageTool extends Sprite {
 		jpgQ.setValue("80")
 		formatTab.getPanel(1).add(jpgQ);
 
-		//
-
 		window.add(formatTab);
 		var layout:BoxLayout=new BoxLayout(window,BoxLayout.Y_AXIS,5);
 		window.setLayout(layout);
@@ -110,21 +109,34 @@ public class ImageTool extends Sprite {
 
 	private function nativeDragDropHandler(event:NativeDragEvent):void {
 		var data:Array=event.clipboard.formats;
-		var bat:LoaderBat=new LoaderBat();
 		for each(var type:String in data){
-			for each(var file:File in event.clipboard.getData(type)){
-				var fs:FileStream=new FileStream();
-				fs.open(file,FileMode.READ);
-				var bytes:ByteArray=new ByteArray();
-				fs.readBytes(bytes);
-				fs.close();
+			doFiles(event.clipboard.getData(type),true);
+		}
+		println("start loading");
+	}
+
+	private function doFiles(files:Object,fromDrag:Boolean):void{
+		var bat:LoaderBat=new LoaderBat();
+		for each(var file:File in files){
+			var fs:FileStream=new FileStream();
+			fs.open(file,FileMode.READ);
+			var bytes:ByteArray=new ByteArray();
+			fs.readBytes(bytes);
+			fs.close();
+			if(fromDrag&&file.extension=="itb"){
+				imageToolBat(bytes,file);
+			}else{
 				bat.addBytesImageLoader(bytes,null,file);
 			}
 		}
 		bat.addEventListener(Event.COMPLETE, bat_completeHandler);
 		bat.start();
+	}
 
-		println("start loading");
+	private function imageToolBat(bytes:ByteArray,file:File):void{
+		var str:String=bytes+"";
+		var lines:Array=str.split("\r\n");
+		println(lines.length);
 	}
 
 	private function getOption():ImageOption{
@@ -150,45 +162,51 @@ public class ImageTool extends Sprite {
 	}
 
 	private function bat_completeHandler(event:Event):void {
-		var option:ImageOption=getOption();
-		var outputTxt:String=outputInput.getValue();
 		var bat:LoaderBat= event.currentTarget as LoaderBat;
+		config.width=int(widthInput.getValue());
+		config.height=int(heightInput.getValue());
+		config.scaleX=Number(scaleXInput.getValue());
+		config.scaleY=Number(scaleYInput.getValue());
+		config.trim=isTrim.getToggle();
+		config.pow2=isPow2.getToggle();
+		config.output=outputInput.getValue();
+		config.option=getOption();
 		for each(var loader:LoaderCell in bat.loaderComps){
 			var bmd:BitmapData=loader.getImage();
 			if(bmd){
 				var file:File=loader.userData as File;
-				var extension:String= file.extension;
-				var name:String = file.name.substr(0,file.name.length-extension.length-1);
-
-				var size:Point=new Point(bmd.width,bmd.height);
-				var width:int=int(widthInput.getValue());
-				var height:int=int(heightInput.getValue());
-				var scaleX:Number=Number(scaleXInput.getValue());
-				var scaleY:Number=Number(scaleYInput.getValue());
-				if(width!=0)size.x=width;
-				if(height!=0)size.y=height;
-				if(scaleX!=0)size.x=Math.ceil(bmd.width*scaleX);
-				if(scaleY!=0)size.y=Math.ceil(bmd.height*scaleY);
-				bmd=resize(bmd,size);
-
-				if(isTrim.getToggle()){
-					var bwt:BitmapDataWithTrimInfo=trim(bmd);
-					bmd=bwt.bmd;
-				}
-				if(isPow2.getToggle()){
-					bmd=pow2(bmd);
-				}
-				var bytes:ByteArray=bmd.encode(bmd.rect,option.option);
-				var url:String=outputTxt;
-				url=url.replace(/\(url\)/g,file.parent.url);
-				url=url.replace(/\(name\)/g,name);
-				url=url.replace(/\(extension\)/g,option.extension);
-				save(bytes,url);
-				println("convert",file.name,url);
+				configSave(config,file,bmd);
 			}
 		}
 		println("over");
 		println();
+	}
+
+	private function configSave(config:ImageToolConfig,file:File,bmd:BitmapData):void{
+		var extension:String= file.extension;
+		var name:String = file.name.substr(0,file.name.length-extension.length-1);
+
+		var size:Point=new Point(bmd.width,bmd.height);
+		if(config.width!=0)size.x=config.width;
+		if(config.height!=0)size.y=config.height;
+		if(config.scaleX!=0)size.x=Math.ceil(bmd.width*config.scaleX);
+		if(config.scaleY!=0)size.y=Math.ceil(bmd.height*config.scaleY);
+		bmd=resize(bmd,size);
+
+		if(config.trim){
+			var bwt:BitmapDataWithTrimInfo=trim(bmd);
+			bmd=bwt.bmd;
+		}
+		if(config.pow2){
+			bmd=pow2(bmd);
+		}
+		var bytes:ByteArray=bmd.encode(bmd.rect,config.option.option);
+		var url:String=config.output;
+		url=url.replace(/\(url\)/g,file.parent.url);
+		url=url.replace(/\(name\)/g,name);
+		url=url.replace(/\(extension\)/g,config.option.extension);
+		save(bytes,url);
+		println("convert",file.name,url);
 	}
 
 	private function resize(bmd:BitmapData,size:Point):BitmapData{
