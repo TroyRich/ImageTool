@@ -44,9 +44,11 @@ public class ImageTool extends Sprite {
 	private var scaleXInput:LabelInput;
 	private var scaleYInput:LabelInput;
 	private var isTrim:Checkbox;
+	private var isPow2:Checkbox;
 	private var formatTab:TabPanel;
 	private var jxrQ:LabelInput;
 	private var jpgQ:LabelInput;
+	private var outputInput:LabelInput;
     public function ImageTool() {
 		println("image tool v 0.1");
 		println("drag image file here");
@@ -76,6 +78,13 @@ public class ImageTool extends Sprite {
 
 		isTrim=new Checkbox("trim");
 		window.add(isTrim);
+		isPow2=new Checkbox("pow2");
+		window.add(isPow2);
+
+		outputInput=new LabelInput("output");
+		outputInput.setValue("(url)/(name).(extension)");
+		println("output","(url)","(name)","(extension)");
+		window.add(outputInput);
 
 		formatTab=new TabPanel(["jxr","jpg","png","atf"]);
 
@@ -142,14 +151,14 @@ public class ImageTool extends Sprite {
 
 	private function bat_completeHandler(event:Event):void {
 		var option:ImageOption=getOption();
-
+		var outputTxt:String=outputInput.getValue();
 		var bat:LoaderBat= event.currentTarget as LoaderBat;
 		for each(var loader:LoaderCell in bat.loaderComps){
 			var bmd:BitmapData=loader.getImage();
 			if(bmd){
 				var file:File=loader.userData as File;
 				var extension:String= file.extension;
-				var name:String = file.name.substr(0,file.name.length-extension.length-1)+"."+option.extension;
+				var name:String = file.name.substr(0,file.name.length-extension.length-1);
 
 				var size:Point=new Point(bmd.width,bmd.height);
 				var width:int=int(widthInput.getValue());
@@ -166,10 +175,16 @@ public class ImageTool extends Sprite {
 					var bwt:BitmapDataWithTrimInfo=trim(bmd);
 					bmd=bwt.bmd;
 				}
+				if(isPow2.getToggle()){
+					bmd=pow2(bmd);
+				}
 				var bytes:ByteArray=bmd.encode(bmd.rect,option.option);
-				var url:String=file.parent.url+"/"+name;
+				var url:String=outputTxt;
+				url=url.replace(/\(url\)/g,file.parent.url);
+				url=url.replace(/\(name\)/g,name);
+				url=url.replace(/\(extension\)/g,option.extension);
 				save(bytes,url);
-				println("convert",file.name,name);
+				println("convert",file.name,url);
 			}
 		}
 		println("over");
@@ -188,6 +203,18 @@ public class ImageTool extends Sprite {
 		bwt.bmd = new BitmapData(bwt.rect.width, bwt.rect.height, bmd.transparent, 0);
 		bwt.bmd.draw(bmd, new Matrix(1, 0, 0, 1, -bwt.rect.x, -bwt.rect.y),null,null,null,true);
 		return bwt;
+	}
+
+	private function pow2(bmd:BitmapData):BitmapData{
+		return resize(bmd,new Point(countPow2(bmd.width),countPow2(bmd.height)));
+	}
+
+	private function countPow2(x:int):int{
+		var r:int=1;
+		while(r<x){
+			r*=2;
+		}
+		return r;
 	}
 
 	private function save(bytes:ByteArray,url:String):void{
