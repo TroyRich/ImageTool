@@ -19,7 +19,7 @@ public class ImageToolConfig {
 	public var formatIndex:int=0;
 	public var jxrQuantization:int=20;
 	public var quality:int=80;
-	public var option:ImageOption;
+	public var option:ImageOption=new ImageOption();
 
 	public function ImageToolConfig() {
 	}

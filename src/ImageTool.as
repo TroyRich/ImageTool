@@ -49,7 +49,6 @@ public class ImageTool extends Sprite {
 	private var jxrQ:LabelInput;
 	private var jpgQ:LabelInput;
 	private var outputInput:LabelInput;
-	private var config:ImageToolConfig=new ImageToolConfig();
     public function ImageTool() {
 		println("image tool v 0.1");
 		println("drag image file here");
@@ -108,23 +107,27 @@ public class ImageTool extends Sprite {
 	}
 
 	private function nativeDragDropHandler(event:NativeDragEvent):void {
+		println("start from drag");
 		var data:Array=event.clipboard.formats;
 		for each(var type:String in data){
-			doFiles(event.clipboard.getData(type),true);
+			doFiles(event.clipboard.getData(type),true,null);
 		}
-		println("start loading");
 	}
 
-	private function doFiles(files:Object,fromDrag:Boolean):void{
+	private function doFiles(files:Object,fromDrag:Boolean,config:ImageToolConfig):void{
 		var bat:LoaderBat=new LoaderBat();
+		bat.userData=config;
 		for each(var file:File in files){
+			if(file.isDirectory){
+				continue;
+			}
 			var fs:FileStream=new FileStream();
 			fs.open(file,FileMode.READ);
 			var bytes:ByteArray=new ByteArray();
 			fs.readBytes(bytes);
 			fs.close();
-			if(fromDrag&&file.extension=="itb"){
-				imageToolBat(bytes,file);
+			if(file.extension=="itb"){
+				if(fromDrag)imageToolBat(bytes,file);
 			}else{
 				bat.addBytesImageLoader(bytes,null,file);
 			}
@@ -135,8 +138,43 @@ public class ImageTool extends Sprite {
 
 	private function imageToolBat(bytes:ByteArray,file:File):void{
 		var str:String=bytes+"";
-		var lines:Array=str.split("\r\n");
-		println(lines.length);
+		var configObj:Object={};
+		var conStrs:Array=str.split("\r\n\r\n");
+		for each(var conStr:String in conStrs){
+			var lines:Array=conStr.split("\r\n");
+			for each(var line:String in lines){
+				var data:Array=line.split(":");
+				configObj[data[0]]=data[1];
+			}
+			var config:ImageToolConfig=new ImageToolConfig();
+			config.width=int(configObj.width);
+			config.height=int(configObj.height);
+			config.scaleX=Number(configObj.scaleX);
+			config.scaleY=Number(configObj.scaleY);
+			config.trim=int(configObj.trim)>0;
+			config.pow2=int(configObj.pow2)>0;
+			config.output=configObj.output;
+			if(int(configObj.jxr)>0){
+				var jxrOption:JPEGXREncoderOptions=new JPEGXREncoderOptions();
+				jxrOption.quantization=Number(configObj.quantization);
+				config.option.option=jxrOption;
+				config.option.extension="wdp";
+			}else if(int(configObj.jpg)>0){
+				var jpgOption:JPEGEncoderOptions=new JPEGEncoderOptions();
+				jpgOption.quality=Number(configObj.quality);
+				config.option.option=jpgOption;
+				config.option.extension="jpg";
+			}else if(int(configObj.png)>0){
+				var pngOption:PNGEncoderOptions=new PNGEncoderOptions();
+				config.option.option=pngOption;
+				config.option.extension="png";
+			}else if(int(configObj.atf)>0){
+
+			}
+			println("start from bat file");
+			doFiles(file.parent.getDirectoryListing(),false,config);
+		}
+
 	}
 
 	private function getOption():ImageOption{
@@ -163,14 +201,18 @@ public class ImageTool extends Sprite {
 
 	private function bat_completeHandler(event:Event):void {
 		var bat:LoaderBat= event.currentTarget as LoaderBat;
-		config.width=int(widthInput.getValue());
-		config.height=int(heightInput.getValue());
-		config.scaleX=Number(scaleXInput.getValue());
-		config.scaleY=Number(scaleYInput.getValue());
-		config.trim=isTrim.getToggle();
-		config.pow2=isPow2.getToggle();
-		config.output=outputInput.getValue();
-		config.option=getOption();
+		var config:ImageToolConfig=(bat.userData as ImageToolConfig);
+		if(config==null){
+			config=new ImageToolConfig();
+			config.width=int(widthInput.getValue());
+			config.height=int(heightInput.getValue());
+			config.scaleX=Number(scaleXInput.getValue());
+			config.scaleY=Number(scaleYInput.getValue());
+			config.trim=isTrim.getToggle();
+			config.pow2=isPow2.getToggle();
+			config.output=outputInput.getValue();
+			config.option=getOption();
+		}
 		for each(var loader:LoaderCell in bat.loaderComps){
 			var bmd:BitmapData=loader.getImage();
 			if(bmd){
