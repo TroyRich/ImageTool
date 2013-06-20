@@ -8,6 +8,7 @@ import flash.desktop.NativeApplication;
 import flash.desktop.NativeDragManager;
 import flash.display.Bitmap;
 import flash.display.BitmapData;
+import flash.display.BitmapDataChannel;
 import flash.display.JPEGEncoderOptions;
 import flash.display.JPEGXREncoderOptions;
 import flash.display.NativeWindow;
@@ -72,7 +73,7 @@ public class ImageTool extends Sprite {
 
 		stage_resizeHandler(null);
 
-		var window:Window=new Window(this,281,13);
+		var window:Window=new Window(this,260,13);
 
 		widthInput=new LabelInput("width ");
 		window.add(widthInput);
@@ -96,7 +97,7 @@ public class ImageTool extends Sprite {
 		println("output","(url)","(name)","(extension)");
 		window.add(outputInput);
 
-		formatTab=new TabPanel(["jxr","jpg","png","atf"]);
+		formatTab=new TabPanel(["jxr","jpg","png","atf","ajpg"]);
 
 		jxrQ=new LabelInput("quantization");
 		jxrQ.setValue("20")
@@ -107,6 +108,7 @@ public class ImageTool extends Sprite {
 		formatTab.getPanel(1).add(jpgQ);
 
 		window.add(formatTab);
+		window.add(new Button("saveConfig"),null,.5);
 		var layout:BoxLayout=new BoxLayout(window,BoxLayout.Y_AXIS,5);
 		window.setLayout(layout);
 		window.doLayout();
@@ -170,18 +172,26 @@ public class ImageTool extends Sprite {
 				jxrOption.quantization=Number(configObj.quantization);
 				config.option.option=jxrOption;
 				config.option.extension="wdp";
+				config.option.id=0;
 			}else if(int(configObj.jpg)>0){
 				var jpgOption:JPEGEncoderOptions=new JPEGEncoderOptions();
 				jpgOption.quality=Number(configObj.quality);
 				config.option.option=jpgOption;
 				config.option.extension="jpg";
+				config.option.id=1;
 			}else if(int(configObj.png)>0){
 				var pngOption:PNGEncoderOptions=new PNGEncoderOptions();
 				config.option.option=pngOption;
 				config.option.extension="png";
+				config.option.id=2;
 			}else if(int(configObj.atf)>0){
 				config.option.option=new EncodingOptions();
 				config.option.extension="atf";
+				config.option.id=3;
+			}else if(int(configObj.ajpg)>0){
+				config.option.option=new JPEGEncoderOptions();
+				config.option.extension="jpg";
+				config.option.id=4;
 			}
 			println("start from bat file");
 			doFiles(file.parent.getDirectoryListing(),false,config);
@@ -196,20 +206,29 @@ public class ImageTool extends Sprite {
 			jxrOption.quantization=Number(jxrQ.getValue());
 			//jxrOption.colorSpace;
 			//jxrOption.trimFlexBits
+			option.id=0;
 			option.option=jxrOption;
 			option.extension="wdp";
 		}else if(formatTab.getPanel(1).stage){//jpg
 			var jpgOption:JPEGEncoderOptions=new JPEGEncoderOptions();
 			jpgOption.quality=Number(jpgQ.getValue());
 			option.option=jpgOption;
+			option.id=1;
 			option.extension="jpg";
 		}else if(formatTab.getPanel(2).stage){//png
 			var pngOption:PNGEncoderOptions=new PNGEncoderOptions();
 			option.option=pngOption;
+			option.id=2;
 			option.extension="png";
-		}else{//atf
+		}else if(formatTab.getPanel(3).stage){//atf
 			option.option=new EncodingOptions();
+			option.id=3;
 			option.extension="atf";
+		}else{//ajpg
+			var ajpgOption:JPEGEncoderOptions=new JPEGEncoderOptions();
+			option.option=ajpgOption;
+			option.extension="jpg";
+			option.id=4;
 		}
 		return option;
 	}
@@ -343,8 +362,16 @@ public class ImageTool extends Sprite {
 	}
 
 	private function encode(bmd:BitmapData,config:ImageToolConfig):ByteArray{
-		if(config.option.option is EncodingOptions){
+		if(config.option.id==3){
 			var bytes:ByteArray=Encoder.encode(bmd,EncodingOptions(config.option.option),null);
+		}else if(config.option.id==4){
+			var bmd2:BitmapData=new BitmapData(bmd.width*2,bmd.height,false,0);
+			var rect:Rectangle=bmd.rect;
+			bmd2.copyChannel(bmd,rect,new Point(),BitmapDataChannel.RED,BitmapDataChannel.RED);
+			bmd2.copyChannel(bmd,rect,new Point(),BitmapDataChannel.GREEN,BitmapDataChannel.GREEN);
+			bmd2.copyChannel(bmd,rect,new Point(),BitmapDataChannel.BLUE,BitmapDataChannel.BLUE);
+			bmd2.copyChannel(bmd,rect,new Point(bmd.width),BitmapDataChannel.ALPHA,BitmapDataChannel.BLUE);
+			bytes=bmd2.encode(bmd2.rect,config.option.option);
 		}else{
 			bytes=bmd.encode(bmd.rect,config.option.option);
 		}
