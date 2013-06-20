@@ -1,5 +1,9 @@
 package lz.iTool {
 
+import atf.Encoder;
+import atf.EncodingOptions;
+import atf.EncodingOptions;
+
 import flash.desktop.NativeApplication;
 import flash.desktop.NativeDragManager;
 import flash.display.Bitmap;
@@ -80,6 +84,7 @@ public class ImageTool extends Sprite {
 		window.add(scaleYInput);
 
 		isTrim=new Checkbox("trim");
+		isTrim.setToggle(true);
 		window.add(isTrim);
 		isPow2=new Checkbox("pow2");
 		window.add(isPow2);
@@ -175,7 +180,8 @@ public class ImageTool extends Sprite {
 				config.option.option=pngOption;
 				config.option.extension="png";
 			}else if(int(configObj.atf)>0){
-
+				config.option.option=new EncodingOptions();
+				config.option.extension="atf";
 			}
 			println("start from bat file");
 			doFiles(file.parent.getDirectoryListing(),false,config);
@@ -197,10 +203,13 @@ public class ImageTool extends Sprite {
 			jpgOption.quality=Number(jpgQ.getValue());
 			option.option=jpgOption;
 			option.extension="jpg";
-		}else{//png
+		}else if(formatTab.getPanel(2).stage){//png
 			var pngOption:PNGEncoderOptions=new PNGEncoderOptions();
 			option.option=pngOption;
 			option.extension="png";
+		}else{//atf
+			option.option=new EncodingOptions();
+			option.extension="atf";
 		}
 		return option;
 	}
@@ -250,28 +259,49 @@ public class ImageTool extends Sprite {
 				}
 			}
 			var rp:RectanglePacker=new RectanglePacker(pw,ph);
+			var vss:Object={};
 			for(var i:int=0;i< configImages.length;i++){
 				ci = configImages[i];
-				rp.insertRectangle(ci.bmd.width,ci.bmd.height,i);
+				var vs:Vector.<uint>  =ci.bmd.getVector(ci.bmd.rect);
+				var flag:Boolean=false;
+				for each(var vs2:Vector.<uint> in vss){
+					if(vs2.length==vs.length){
+						flag=true;
+						for(var j:int= 0,len:int=vs2.length;j<len;j++){
+							if(vs2[j]!=vs[j]){
+								flag=false;
+								break;
+							}
+						}
+						if(flag){
+							break;
+						}
+					}
+				}
+				if(!flag){
+					vss[i]=vs;
+					rp.insertRectangle(ci.bmd.width,ci.bmd.height,i);
+				}
 			}
 			rp.packRectangles();
 			bmd=new BitmapData(pw,ph,true,0);
+			bmd.lock();
 			var rect:Rectangle = new Rectangle();
 			for (i = 0; i < rp.rectangleCount; i++)
 			{
 				rp.getRectangle(i, rect);
 				var index:int = rp.getRectangleId(i);
 				ci=configImages[index];
-				var bytes:ByteArray=ci.bmd.getPixels(ci.bmd.rect);
-				bytes.position=0;
-				bmd.setPixels(rect,bytes);
+				vs=vss[index];
+				bmd.setVector(rect,vs);
 			}
 			if(config.width>0&&config.height>0){
 
 			}else{
 				bmd=trim(bmd,config.pow2).bmd;
 			}
-			save(bmd.encode(bmd.rect,config.option.option),file.parent.url+"/sheet."+config.option.extension);
+			bmd.unlock();
+			save(encode(bmd,config),file.parent.url+"/sheet."+config.option.extension);
 		}
 		println("over");
 		println();
@@ -303,13 +333,22 @@ public class ImageTool extends Sprite {
 		bmd=configImage(config,file,bmd).bmd;
 		var extension:String= file.extension;
 		var name:String = file.name.substr(0,file.name.length-extension.length-1);
-		var bytes:ByteArray=bmd.encode(bmd.rect,config.option.option);
+		var bytes:ByteArray=encode(bmd,config);
 		var url:String=config.output;
 		url=url.replace(/\(url\)/g,file.parent.url);
 		url=url.replace(/\(name\)/g,name);
 		url=url.replace(/\(extension\)/g,config.option.extension);
 		save(bytes,url);
 		println("convert",file.name,url);
+	}
+
+	private function encode(bmd:BitmapData,config:ImageToolConfig):ByteArray{
+		if(config.option.option is EncodingOptions){
+			var bytes:ByteArray=Encoder.encode(bmd,EncodingOptions(config.option.option),null);
+		}else{
+			bytes=bmd.encode(bmd.rect,config.option.option);
+		}
+		return bytes;
 	}
 
 	private function resize(bmd:BitmapData,size:Point):BitmapData{
@@ -325,8 +364,13 @@ public class ImageTool extends Sprite {
 			bwt.rect.width=countPow2(bwt.rect.width);
 			bwt.rect.height=countPow2(bwt.rect.height);
 		}
-		bwt.bmd = new BitmapData(bwt.rect.width, bwt.rect.height, bmd.transparent, 0);
-		bwt.bmd.draw(bmd, new Matrix(1, 0, 0, 1, -bwt.rect.x, -bwt.rect.y),null,null,null,true);
+		if(bwt.rect.width!=bmd.width||bwt.rect.height!=bmd.height){
+			bwt.bmd = new BitmapData(bwt.rect.width, bwt.rect.height, bmd.transparent, 0);
+			bwt.bmd.draw(bmd, new Matrix(1, 0, 0, 1, -bwt.rect.x, -bwt.rect.y),null,null,null,true);
+		}else{
+			bwt.bmd=bmd;
+		}
+
 		return bwt;
 	}
 
