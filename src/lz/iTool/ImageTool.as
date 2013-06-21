@@ -386,7 +386,12 @@ public class ImageTool extends Sprite {
 
 	private function trim(bmd:BitmapData,pow2:Boolean=false):BitmapDataWithTrimInfo{
 		var bwt:BitmapDataWithTrimInfo=new BitmapDataWithTrimInfo();
-		bwt.rect = bmd.getColorBoundsRect(0xff000000, 0, false);
+		if(bmd.transparent){
+			bwt.rect = bmd.getColorBoundsRect(0xff000000, 0, false);
+		}else{
+			bwt.rect = bmd.rect;
+		}
+
 		if(pow2){
 			bwt.rect.width=countPow2(bwt.rect.width);
 			bwt.rect.height=countPow2(bwt.rect.height);
