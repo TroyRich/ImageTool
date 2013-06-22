@@ -9,6 +9,8 @@ import flash.desktop.NativeDragManager;
 import flash.display.Bitmap;
 import flash.display.BitmapData;
 import flash.display.BitmapDataChannel;
+import flash.display.DisplayObject;
+import flash.display.DisplayObjectContainer;
 import flash.display.JPEGEncoderOptions;
 import flash.display.JPEGXREncoderOptions;
 import flash.display.NativeWindow;
@@ -24,8 +26,10 @@ import flash.filesystem.FileStream;
 import flash.geom.Matrix;
 import flash.geom.Point;
 import flash.geom.Rectangle;
+import flash.net.SharedObject;
 import flash.text.TextField;
 import flash.utils.ByteArray;
+import flash.utils.describeType;
 
 import lz.net.LoaderBat;
 import lz.net.LoaderCell;
@@ -34,8 +38,10 @@ import org.villekoskela.utils.RectanglePacker;
 
 import sliz.miniui.Button;
 import sliz.miniui.Checkbox;
+import sliz.miniui.Label;
 import sliz.miniui.LabelInput;
 import sliz.miniui.Panel;
+import sliz.miniui.TabBar;
 
 import sliz.miniui.TabPanel;
 
@@ -55,7 +61,13 @@ public class ImageTool extends Sprite {
 	private var isPack:Checkbox;
 	private var formatTab:TabPanel;
 	private var jxrQ:LabelInput;
+	private var jxrColorSpace:LabelInput;
+	private var jxrTrimFlexBits:LabelInput;
 	private var jpgQ:LabelInput;
+	private var natfPng2atfUrl:LabelInput;
+	private var natfArg:LabelInput;
+
+
 	private var outputInput:LabelInput;
     public function ImageTool() {
 		println("image tool v 0.1");
@@ -73,7 +85,7 @@ public class ImageTool extends Sprite {
 
 		stage_resizeHandler(null);
 
-		var window:Window=new Window(this,260,13);
+		var window:Window=new Window(this,210,13);
 
 		widthInput=new LabelInput("width ");
 		window.add(widthInput);
@@ -97,55 +109,73 @@ public class ImageTool extends Sprite {
 		println("output","(url)","(name)","(extension)");
 		window.add(outputInput);
 
-		formatTab=new TabPanel(["jxr","jpg","png","atf","ajpg"]);
+		formatTab=new TabPanel(["jxr","jpg","png","atf","ajpg","natf"]);
 
 		jxrQ=new LabelInput("quantization");
-		jxrQ.setValue("20")
+		jxrQ.setValue("20");
 		formatTab.getPanel(0).add(jxrQ);
+		jxrColorSpace=new LabelInput("colorSpace");
+		formatTab.getPanel(0).add(jxrColorSpace);
+		jxrTrimFlexBits=new LabelInput("trimFlexBits");
+		formatTab.getPanel(0).add(jxrTrimFlexBits);
 
 		jpgQ=new LabelInput("quality");
-		jpgQ.setValue("80")
+		jpgQ.setValue("80");
 		formatTab.getPanel(1).add(jpgQ);
 
+		natfPng2atfUrl=new LabelInput("png2atf url");
+		formatTab.getPanel(5).add(natfPng2atfUrl);
+		natfArg=new LabelInput("arg");
+		formatTab.getPanel(5).add(natfArg);
+		formatTab.getPanel(5).add(new Label("not implement"));
+
+		dolayoutPanel(formatTab.getPanel(0));
+		dolayoutPanel(formatTab.getPanel(1));
+		dolayoutPanel(formatTab.getPanel(2));
+		dolayoutPanel(formatTab.getPanel(3));
+		dolayoutPanel(formatTab.getPanel(4));
+		dolayoutPanel(formatTab.getPanel(5));
 		window.add(formatTab);
-		window.add(new Button("saveConfig"),null,.5);
-		var layout:BoxLayout=new BoxLayout(window,BoxLayout.Y_AXIS,5);
-		window.setLayout(layout);
-		window.doLayout();
+		window.add(new Button("saveConfig",0,0,null,saveAppConfig),null,.5);
+		dolayoutPanel(window);
+
+		fromAppConfig();
 	}
 
-	private function nativeDragEnterHandler(event:NativeDragEvent):void {
-		NativeDragManager.acceptDragDrop(this);
-	}
-
-	private function nativeDragDropHandler(event:NativeDragEvent):void {
-		println("start from drag");
-		var data:Array=event.clipboard.formats;
-		for each(var type:String in data){
-			doFiles(event.clipboard.getData(type),true,null);
+	private function fromAppConfig():void{
+		var appConfig:Object=SharedObject.getLocal("imageToolAppConfig").data;
+		var config:ImageToolConfig=new ImageToolConfig();
+		if(appConfig){
+			if(appConfig.hasOwnProperty("width"))widthInput.setValue(appConfig.width);
+			if(appConfig.hasOwnProperty("height"))heightInput.setValue(appConfig.height);
+			if(appConfig.hasOwnProperty("scaleX"))scaleXInput.setValue(appConfig.scaleX);
+			if(appConfig.hasOwnProperty("scaleY"))scaleYInput.setValue(appConfig.scaleY);
+			if(appConfig.hasOwnProperty("trim"))isTrim.setToggle(appConfig.trim);
+			if(appConfig.hasOwnProperty("pow2"))isPack.setToggle(appConfig.pow2);
+			if(appConfig.hasOwnProperty("pack"))isPack.setToggle(appConfig.pack);
+			if(appConfig.hasOwnProperty("output"))outputInput.setValue(appConfig.output);
+			if(appConfig.hasOwnProperty("formatIndex"))selectPanelIndex(formatTab,appConfig.formatIndex);
+			if(appConfig.hasOwnProperty("jxrQuantization"))jxrQ.setValue(appConfig.jxrQuantization);
+			if(appConfig.hasOwnProperty("jpgQuality"))jpgQ.setValue(appConfig.jpgQuality);
 		}
 	}
 
-	private function doFiles(files:Object,fromDrag:Boolean,config:ImageToolConfig):void{
-		var bat:LoaderBat=new LoaderBat();
-		bat.userData=config;
-		for each(var file:File in files){
-			if(file.isDirectory){
-				continue;
-			}
-			var fs:FileStream=new FileStream();
-			fs.open(file,FileMode.READ);
-			var bytes:ByteArray=new ByteArray();
-			fs.readBytes(bytes);
-			fs.close();
-			if(file.extension=="itb"){
-				if(fromDrag)imageToolBat(bytes,file);
-			}else{
-				bat.addBytesImageLoader(bytes,null,file);
-			}
-		}
-		bat.addEventListener(Event.COMPLETE, bat_completeHandler);
-		bat.start();
+	private function saveAppConfig(e:Event):void{
+		var appConfigSB:SharedObject=SharedObject.getLocal("imageToolAppConfig");
+		var appConfig:Object=appConfigSB.data;
+		appConfig.width=widthInput.getValue();
+		appConfig.height= heightInput.getValue();
+		appConfig.scaleX= scaleXInput.getValue();
+		appConfig.scaleY= scaleYInput.getValue();
+		appConfig.trim= isTrim.getToggle();
+		appConfig.pow2= isPack.getToggle();
+		appConfig.pack= isPack.getToggle();
+		appConfig.output= outputInput.getValue();
+		appConfig.formatIndex= getTabPanelIndex(formatTab);
+		appConfig.jxrQuantization= jxrQ.getValue();
+		appConfig.jpgQuality= jpgQ.getValue();
+		appConfigSB.flush();
+		println("app config saved");
 	}
 
 	private function imageToolBat(bytes:ByteArray,file:File):void{
@@ -175,7 +205,7 @@ public class ImageTool extends Sprite {
 				config.option.id=0;
 			}else if(int(configObj.jpg)>0){
 				var jpgOption:JPEGEncoderOptions=new JPEGEncoderOptions();
-				jpgOption.quality=Number(configObj.quality);
+				jpgOption.quality=Number(configObj.jpgQuality);
 				config.option.option=jpgOption;
 				config.option.extension="jpg";
 				config.option.id=1;
@@ -196,12 +226,12 @@ public class ImageTool extends Sprite {
 			println("start from bat file");
 			doFiles(file.parent.getDirectoryListing(),false,config);
 		}
-
 	}
 
 	private function getOption():ImageOption{
 		var option:ImageOption=new ImageOption();
-		if(formatTab.getPanel(0).stage){//jxr
+		var i:int=getTabPanelIndex(formatTab);
+		if(i==0){//jxr
 			var jxrOption:JPEGXREncoderOptions=new JPEGXREncoderOptions();
 			jxrOption.quantization=Number(jxrQ.getValue());
 			//jxrOption.colorSpace;
@@ -209,18 +239,18 @@ public class ImageTool extends Sprite {
 			option.id=0;
 			option.option=jxrOption;
 			option.extension="wdp";
-		}else if(formatTab.getPanel(1).stage){//jpg
+		}else if(i==1){//jpg
 			var jpgOption:JPEGEncoderOptions=new JPEGEncoderOptions();
 			jpgOption.quality=Number(jpgQ.getValue());
 			option.option=jpgOption;
 			option.id=1;
 			option.extension="jpg";
-		}else if(formatTab.getPanel(2).stage){//png
+		}else if(i==2){//png
 			var pngOption:PNGEncoderOptions=new PNGEncoderOptions();
 			option.option=pngOption;
 			option.id=2;
 			option.extension="png";
-		}else if(formatTab.getPanel(3).stage){//atf
+		}else if(i==3){//atf
 			option.option=new EncodingOptions();
 			option.id=3;
 			option.extension="atf";
@@ -267,60 +297,7 @@ public class ImageTool extends Sprite {
 			}
 		}
 		if(config.pack){
-			if(config.width>0&&config.height>0){
-				var pw:int=config.width;
-				var ph:int=config.height;
-			}else{
-				pw=4096;
-				ph=Math.max(Math.ceil(Math.sqrt(area)),maxHeight);
-				if(config.pow2){
-					ph=countPow2(ph);
-				}
-			}
-			var rp:RectanglePacker=new RectanglePacker(pw,ph);
-			var vss:Object={};
-			for(var i:int=0;i< configImages.length;i++){
-				ci = configImages[i];
-				var vs:Vector.<uint>  =ci.bmd.getVector(ci.bmd.rect);
-				var flag:Boolean=false;
-				for each(var vs2:Vector.<uint> in vss){
-					if(vs2.length==vs.length){
-						flag=true;
-						for(var j:int= 0,len:int=vs2.length;j<len;j++){
-							if(vs2[j]!=vs[j]){
-								flag=false;
-								break;
-							}
-						}
-						if(flag){
-							break;
-						}
-					}
-				}
-				if(!flag){
-					vss[i]=vs;
-					rp.insertRectangle(ci.bmd.width,ci.bmd.height,i);
-				}
-			}
-			rp.packRectangles();
-			bmd=new BitmapData(pw,ph,true,0);
-			bmd.lock();
-			var rect:Rectangle = new Rectangle();
-			for (i = 0; i < rp.rectangleCount; i++)
-			{
-				rp.getRectangle(i, rect);
-				var index:int = rp.getRectangleId(i);
-				ci=configImages[index];
-				vs=vss[index];
-				bmd.setVector(rect,vs);
-			}
-			if(config.width>0&&config.height>0){
-
-			}else{
-				bmd=trim(bmd,config.pow2).bmd;
-			}
-			bmd.unlock();
-			save(encode(bmd,config),file.parent.url+"/sheet."+config.option.extension);
+			pack(configImages,config,area,maxHeight,file.parent);
 		}
 		println("over");
 		println();
@@ -346,6 +323,32 @@ public class ImageTool extends Sprite {
 		configImage.bmd=bmd;
 		configImage.file=file;
 		return configImage;
+	}
+	private function doFiles(files:Object,fromDrag:Boolean,config:ImageToolConfig):void{
+		if(getTabPanelIndex(formatTab)==5){
+
+		}else{
+			var bat:LoaderBat=new LoaderBat();
+			bat.userData=config;
+			for each(var file:File in files){
+				if(file.isDirectory){
+					continue;
+				}
+				var fs:FileStream=new FileStream();
+				fs.open(file,FileMode.READ);
+				var bytes:ByteArray=new ByteArray();
+				fs.readBytes(bytes);
+				fs.close();
+				if(file.extension=="itb"){
+					if(fromDrag)imageToolBat(bytes,file);
+				}else{
+					bat.addBytesImageLoader(bytes,null,file);
+				}
+			}
+			bat.addEventListener(Event.COMPLETE, bat_completeHandler);
+			bat.start();
+		}
+
 	}
 
 	private function configSave(config:ImageToolConfig,file:File,bmd:BitmapData):void{
@@ -405,6 +408,63 @@ public class ImageTool extends Sprite {
 
 		return bwt;
 	}
+	private function pack(configImages:Vector.<ConfigImage>,config:ImageToolConfig,area:int,maxHeight:int,parentFile:File):void{
+		println("pack");
+		if(config.width>0&&config.height>0){
+			var pw:int=config.width;
+			var ph:int=config.height;
+		}else{
+			pw=4096;
+			ph=Math.max(Math.ceil(Math.sqrt(area)),maxHeight);
+			if(config.pow2){
+				ph=countPow2(ph);
+			}
+		}
+		var rp:RectanglePacker=new RectanglePacker(pw,ph);
+		var vss:Object={};
+		for(var i:int=0;i< configImages.length;i++){
+			var ci:ConfigImage = configImages[i];
+			var vs:Vector.<uint>  =ci.bmd.getVector(ci.bmd.rect);
+			var flag:Boolean=false;
+			for each(var vs2:Vector.<uint> in vss){
+				if(vs2.length==vs.length){
+					flag=true;
+					for(var j:int= 0,len:int=vs2.length;j<len;j++){
+						if(vs2[j]!=vs[j]){
+							flag=false;
+							break;
+						}
+					}
+					if(flag){
+						break;
+					}
+				}
+			}
+			if(!flag){
+				vss[i]=vs;
+				rp.insertRectangle(ci.bmd.width,ci.bmd.height,i);
+			}
+		}
+		rp.packRectangles();
+		var bmd:BitmapData=new BitmapData(pw,ph,true,0);
+		bmd.lock();
+		var rect:Rectangle = new Rectangle();
+		for (i = 0; i < rp.rectangleCount; i++)
+		{
+			rp.getRectangle(i, rect);
+			var index:int = rp.getRectangleId(i);
+			ci=configImages[index];
+			vs=vss[index];
+			bmd.setVector(rect,vs);
+		}
+		if(config.width>0&&config.height>0){
+
+		}else{
+			bmd=trim(bmd,config.pow2).bmd;
+		}
+		bmd.unlock();
+		save(encode(bmd,config),parentFile.url+"/sheet."+config.option.extension);
+	}
 
 	private function pow2(bmd:BitmapData):BitmapData{
 		return resize(bmd,new Point(countPow2(bmd.width),countPow2(bmd.height)));
@@ -435,6 +495,45 @@ public class ImageTool extends Sprite {
 	private  function println(...txt):void{
 		outPut.appendText(txt+"\n");
 		outPut.scrollV=outPut.maxScrollV;
+	}
+
+	private function getTabPanelIndex(panel:TabPanel):int{
+		var i:int=-1;
+		var child:Panel;
+		while((child = panel.getPanel(++i))!=null){
+			if(child.parent)break;
+		}
+		return i;
+	}
+
+	private function selectPanelIndex(panel:TabPanel,index:int):void{
+		var tabbar:TabBar;
+		for(var i:int=0;i<panel.numChildren;i++){
+			var child:DisplayObject = panel.getChildAt(i);
+			if(child is TabBar){
+				tabbar=child as TabBar;
+			}
+		}
+		if(tabbar){
+			tabbar.select(index);
+		}
+	}
+
+	private function dolayoutPanel(panel:Panel):void{
+		panel.setLayout(new BoxLayout(panel,BoxLayout.Y_AXIS,5));
+		panel.doLayout();
+	}
+
+	private function nativeDragEnterHandler(event:NativeDragEvent):void {
+		NativeDragManager.acceptDragDrop(this);
+	}
+
+	private function nativeDragDropHandler(event:NativeDragEvent):void {
+		println("start from drag");
+		var data:Array=event.clipboard.formats;
+		for each(var type:String in data){
+			doFiles(event.clipboard.getData(type),true,null);
+		}
 	}
 }
 }

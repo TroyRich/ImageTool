@@ -2,18 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" name="Default" comment="fds">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ImageTool.as" afterPath="$PROJECT_DIR$/src/ImageTool.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/net.swc" afterPath="$PROJECT_DIR$/lib/net.swc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/lz/iTool/ImageTool.as" afterPath="$PROJECT_DIR$/src/lz/iTool/ImageTool.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ImageTool.iml" afterPath="$PROJECT_DIR$/ImageTool.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/lz/iTool/ImageToolConfig.as" afterPath="$PROJECT_DIR$/src/lz/iTool/ImageToolConfig.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ImageTool.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/ImageTool.as" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1371476856236" ignored="false" />
-    <file path="/fragment.js2" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1371433336091" ignored="false" />
-    <file path="/ImageOption.as" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1371216168746" ignored="false" />
-    <file path="/Dummy.txt" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1371475845379" ignored="false" />
+    <file path="/ImageTool.as" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1371900302433" ignored="false" />
+    <file path="/fragment.js2" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1371899958646" ignored="false" />
+    <file path="/ImageOption.as" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1371727883552" ignored="false" />
+    <file path="/Dummy.txt" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1371895797515" ignored="false" />
     <file path="/index.html" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1371297520200" ignored="false" />
     <file path="/log.php" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1371283123971" ignored="false" />
     <file path="/BitmapDataWithTrimInfo.as" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1371433397762" ignored="false" />
+    <file path="/ImageToolConfig.as" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1371893440367" ignored="false" />
+    <file path="/ConfigImage.as" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1371695289180" ignored="false" />
+    <file path="/a.dummy" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1371717630995" ignored="false" />
+    <file path="/NativePng2atf.as" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1371900276723" ignored="false" />
+    <file path="/NativePng2atfOption.as" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1371900027993" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,68 +84,83 @@
   <component name="FileEditorManager">
     <leaf>
       <file leaf-file-name="ImageTool.as" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/ImageTool.as">
+        <entry file="file://$PROJECT_DIR$/src/lz/iTool/ImageTool.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="175" column="18" selection-start="5190" selection-end="5190" vertical-scroll-proportion="5.2527647">
+            <state line="129" column="58" selection-start="3788" selection-end="3788" vertical-scroll-proportion="0.50086653">
               <folding>
-                <element signature="e#11#50#0" expanded="true" />
+                <element signature="e#20#39#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ImageScaleBat.mxml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://F:/e/wg/tools/xlstools/src/ImageScaleBat.mxml">
+      <file leaf-file-name="NativePng2atf.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/lz/iTool/NativePng2atf.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="137" column="108" selection-start="4280" selection-end="4387" vertical-scroll-proportion="-16.285715">
-              <folding>
-                <marker date="1354332477797" expanded="false" signature="423:1276" placeholder="..." />
-                <marker date="1354332477797" expanded="true" signature="1487:2015" placeholder="{...}" />
-                <marker date="1354332477797" expanded="true" signature="1564:1657" placeholder="{...}" />
-                <marker date="1354332477797" expanded="true" signature="1697:1788" placeholder="{...}" />
-                <marker date="1354332477797" expanded="true" signature="1793:1864" placeholder="{...}" />
-                <marker date="1354332477797" expanded="true" signature="2057:2621" placeholder="{...}" />
-                <marker date="1354332477797" expanded="true" signature="2427:2617" placeholder="{...}" />
-                <marker date="1354332477797" expanded="true" signature="2483:2612" placeholder="{...}" />
-                <marker date="1354332477797" expanded="true" signature="2538:2606" placeholder="{...}" />
-                <marker date="1354332477797" expanded="true" signature="2695:3512" placeholder="{...}" />
-                <marker date="1354332477797" expanded="true" signature="2730:2982" placeholder="{...}" />
-                <marker date="1354332477797" expanded="true" signature="2771:2853" placeholder="{...}" />
-                <marker date="1354332477797" expanded="true" signature="2940:2977" placeholder="{...}" />
-                <marker date="1354332477797" expanded="true" signature="2987:3508" placeholder="{...}" />
-                <marker date="1354332477797" expanded="true" signature="3568:5889" placeholder="{...}" />
-                <marker date="1354332477797" expanded="true" signature="3642:5580" placeholder="{...}" />
-                <marker date="1354332477797" expanded="true" signature="3950:4010" placeholder="{...}" />
-                <marker date="1354332477797" expanded="true" signature="4041:4147" placeholder="{...}" />
-                <marker date="1354332477797" expanded="true" signature="4152:4270" placeholder="{...}" />
-                <marker date="1354332477797" expanded="true" signature="4434:4767" placeholder="{...}" />
-                <marker date="1354332477797" expanded="true" signature="4809:5275" placeholder="{...}" />
-                <marker date="1354332477797" expanded="true" signature="4924:4985" placeholder="{...}" />
-                <marker date="1354332477797" expanded="true" signature="4990:5048" placeholder="{...}" />
-                <marker date="1354332477797" expanded="true" signature="5303:5473" placeholder="{...}" />
-                <marker date="1354332477797" expanded="true" signature="5598:5609" placeholder="{...}" />
-                <marker date="1354332477797" expanded="true" signature="5653:5885" placeholder="{...}" />
-                <marker date="1354332477797" expanded="true" signature="5924:6252" placeholder="{...}" />
-                <marker date="1354332477797" expanded="true" signature="6303:6724" placeholder="{...}" />
-                <marker date="1354332477797" expanded="true" signature="6767:7188" placeholder="{...}" />
-                <marker date="1354332477797" expanded="true" signature="7242:8327" placeholder="{...}" />
-                <marker date="1354332477797" expanded="true" signature="7284:7377" placeholder="{...}" />
-                <marker date="1354332477797" expanded="true" signature="7417:7508" placeholder="{...}" />
-                <marker date="1354332477797" expanded="true" signature="7513:7584" placeholder="{...}" />
-                <marker date="1354332477797" expanded="true" signature="7864:8300" placeholder="{...}" />
-                <marker date="1354332477797" expanded="true" signature="7904:8295" placeholder="{...}" />
-                <marker date="1354332477797" expanded="true" signature="8384:8666" placeholder="{...}" />
-                <marker date="1354332477797" expanded="true" signature="8740:9151" placeholder="{...}" />
-                <marker date="1354332477797" expanded="true" signature="9194:9264" placeholder="{...}" />
-              </folding>
+            <state line="17" column="0" selection-start="456" selection-end="456" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BitmapDataWithTrimInfo.as" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/BitmapDataWithTrimInfo.as">
+      <file leaf-file-name="ImageToolConfig.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/lz/iTool/ImageToolConfig.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="30" selection-start="326" selection-end="326" vertical-scroll-proportion="0.0">
+            <state line="20" column="38" selection-start="631" selection-end="631" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="compiler.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.idea/compiler.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="encodings.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.idea/encodings.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="flexCompiler.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.idea/flexCompiler.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="misc.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.idea/misc.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="modules.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.idea/modules.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ImageTool.iml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ImageTool.iml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="28" selection-start="662" selection-end="662" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -153,6 +177,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitLogSettings">
+    <option name="myStructureFilterPaths" />
     <option name="myDateState">
       <MyDateState />
     </option>
@@ -160,11 +185,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/ImageOption.as" />
         <option value="F:/e/wg/log/bin/log.php" />
         <option value="F:/e/wg/log/bin/index.html" />
         <option value="$PROJECT_DIR$/src/BitmapDataWithTrimInfo.as" />
+        <option value="$PROJECT_DIR$/src/ImageToolConfig.as" />
         <option value="$PROJECT_DIR$/src/ImageTool.as" />
+        <option value="$PROJECT_DIR$/src/lz/iTool/ConfigImage.as" />
+        <option value="$PROJECT_DIR$/src/Test.as" />
+        <option value="$PROJECT_DIR$/src/Test.js" />
+        <option value="$PROJECT_DIR$/src/T.as" />
+        <option value="$PROJECT_DIR$/src/lz/iTool/BitmapDataWithTrimInfo.as" />
+        <option value="$PROJECT_DIR$/src/lz/iTool/ImageOption.as" />
+        <option value="$PROJECT_DIR$/src/lz/iTool/ImageToolConfig.as" />
+        <option value="$PROJECT_DIR$/.idea/workspace.xml" />
+        <option value="$PROJECT_DIR$/src/lz/iTool/NativePng2atfOption.as" />
+        <option value="$PROJECT_DIR$/src/lz/iTool/NativePng2atf.as" />
+        <option value="$PROJECT_DIR$/src/lz/iTool/ImageTool.as" />
       </list>
     </option>
   </component>
@@ -173,6 +209,22 @@
     <option name="y" value="-8" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>Class structure</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -200,7 +252,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -208,10 +259,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="ImageTool" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -238,33 +285,101 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ImageTool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ImageTool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iTool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ImageTool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ImageTool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ImageTool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ImageTool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value=".idea" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="260" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="267" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
     <property name="recentsLimit" value="5" />
     <property name="MemberChooser.sorted" value="false" />
-    <property name="options.lastSelected" value="preferences.keymap" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="260" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../testflash" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="267" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="1060" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="1060" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="267" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="267" />
+    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
+    <property name="FullScreen" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
+    <property name="GoToClass.includeLibraries" value="false" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="options.lastSelected" value="fileTemplates" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
-    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
-    <property name="MemberChooser.showClasses" value="true" />
-    <property name="FullScreen" value="false" />
-    <property name="GoToClass.includeLibraries" value="false" />
     <property name="options.searchVisible" value="true" />
-    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CreateActionScriptClassDialog.DESTINATION_PACKAGE_RECENT_KEY">
+      <recent name="lz.iTool" />
       <recent name="" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\IdeaProjects\ImageTool\src" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\IdeaProjects\ImageTool\src\lz\iTool" />
       <recent name="C:\Users\Administrator\IdeaProjects\ImageTool\lib" />
     </key>
   </component>
@@ -301,6 +416,11 @@
       <option name="VM_PARAMETERS" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
+    <configuration default="true" type="RemoteFlashRunConfigurationType" factoryName="Flash Remote Debug">
+      <option name="BCName" value="" />
+      <option name="moduleName" value="" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -437,25 +557,45 @@
     <option name="IGNORE_EXTERNALS" value="false" />
     <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
   </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1150838" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18316269" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.45027933" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.09541381" sideWeight="0.73743016" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26256984" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960895" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24986821" sideWeight="0.67486036" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13336848" sideWeight="0.67486036" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37428898" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28549618" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32513967" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998884" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -521,161 +661,105 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="6" />
+      <option name="time" value="29" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/ImageTool.as">
+    <entry file="file://$PROJECT_DIR$/src/atf/AtfFormat.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#11#50#0" expanded="true" />
-          </folding>
-        </state>
+        <state line="49" column="13" selection-start="1430" selection-end="1430" vertical-scroll-proportion="0.7816092" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImageOption.as">
+    <entry file="file://$PROJECT_DIR$/src/lz/iTool/ImageOption.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="32" selection-start="253" selection-end="253" vertical-scroll-proportion="0.0" />
+        <state line="11" column="22" selection-start="301" selection-end="301" vertical-scroll-proportion="0.24022989" />
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/miniui_v1.0.swc!/library.swf">
+    <entry file="jar://D:/Program Files/adobe/air37/frameworks/libs/air/airglobal.swc!/library.swf">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="654" column="13" selection-start="25757" selection-end="25757" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImageTool.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#11#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImageTool.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#11#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImageTool.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#11#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImageTool.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#11#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImageTool.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#11#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/Program Files/FlashDevelop/Tools/ascsdk/frameworks/libs/air/airglobal.swc!/library.swf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4292" column="13" selection-start="188346" selection-end="188346" vertical-scroll-proportion="0.33333334" />
+        <state line="6868" column="38" selection-start="298893" selection-end="298893" vertical-scroll-proportion="0.022170361" />
       </provider>
     </entry>
     <entry file="jar://$PROJECT_DIR$/lib/miniui_v1.0.swc!/library.swf">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="654" column="13" selection-start="25757" selection-end="25757" vertical-scroll-proportion="0.022592152">
+        <state line="654" column="13" selection-start="25757" selection-end="25757" vertical-scroll-proportion="0.022170361" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="32" selection-start="343" selection-end="343" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImageOption.as">
+    <entry file="file://$PROJECT_DIR$/src/lz/iTool/ConfigImage.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="32" selection-start="253" selection-end="253" vertical-scroll-proportion="0.088992976" />
-      </provider>
-    </entry>
-    <entry file="file://F:/e/wg/log/bin/log.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="33" selection-start="270" selection-end="270" vertical-scroll-proportion="0.20023419" />
-      </provider>
-    </entry>
-    <entry file="file://F:/e/wg/log/bin/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="114" column="35" selection-start="3019" selection-end="3019" vertical-scroll-proportion="0.1423221" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BitmapDataWithTrimInfo.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="30" selection-start="326" selection-end="326" vertical-scroll-proportion="0.0">
+        <state line="12" column="30" selection-start="317" selection-end="317" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://F:/e/wg/tools/xlstools/src/ImageScaleBat.mxml">
+    <entry file="file://$PROJECT_DIR$/.idea/compiler.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="137" column="108" selection-start="4280" selection-end="4387" vertical-scroll-proportion="-16.285715">
-          <folding>
-            <marker date="1354332477797" expanded="false" signature="423:1276" placeholder="..." />
-            <marker date="1354332477797" expanded="true" signature="1487:2015" placeholder="{...}" />
-            <marker date="1354332477797" expanded="true" signature="1564:1657" placeholder="{...}" />
-            <marker date="1354332477797" expanded="true" signature="1697:1788" placeholder="{...}" />
-            <marker date="1354332477797" expanded="true" signature="1793:1864" placeholder="{...}" />
-            <marker date="1354332477797" expanded="true" signature="2057:2621" placeholder="{...}" />
-            <marker date="1354332477797" expanded="true" signature="2427:2617" placeholder="{...}" />
-            <marker date="1354332477797" expanded="true" signature="2483:2612" placeholder="{...}" />
-            <marker date="1354332477797" expanded="true" signature="2538:2606" placeholder="{...}" />
-            <marker date="1354332477797" expanded="true" signature="2695:3512" placeholder="{...}" />
-            <marker date="1354332477797" expanded="true" signature="2730:2982" placeholder="{...}" />
-            <marker date="1354332477797" expanded="true" signature="2771:2853" placeholder="{...}" />
-            <marker date="1354332477797" expanded="true" signature="2940:2977" placeholder="{...}" />
-            <marker date="1354332477797" expanded="true" signature="2987:3508" placeholder="{...}" />
-            <marker date="1354332477797" expanded="true" signature="3568:5889" placeholder="{...}" />
-            <marker date="1354332477797" expanded="true" signature="3642:5580" placeholder="{...}" />
-            <marker date="1354332477797" expanded="true" signature="3950:4010" placeholder="{...}" />
-            <marker date="1354332477797" expanded="true" signature="4041:4147" placeholder="{...}" />
-            <marker date="1354332477797" expanded="true" signature="4152:4270" placeholder="{...}" />
-            <marker date="1354332477797" expanded="true" signature="4434:4767" placeholder="{...}" />
-            <marker date="1354332477797" expanded="true" signature="4809:5275" placeholder="{...}" />
-            <marker date="1354332477797" expanded="true" signature="4924:4985" placeholder="{...}" />
-            <marker date="1354332477797" expanded="true" signature="4990:5048" placeholder="{...}" />
-            <marker date="1354332477797" expanded="true" signature="5303:5473" placeholder="{...}" />
-            <marker date="1354332477797" expanded="true" signature="5598:5609" placeholder="{...}" />
-            <marker date="1354332477797" expanded="true" signature="5653:5885" placeholder="{...}" />
-            <marker date="1354332477797" expanded="true" signature="5924:6252" placeholder="{...}" />
-            <marker date="1354332477797" expanded="true" signature="6303:6724" placeholder="{...}" />
-            <marker date="1354332477797" expanded="true" signature="6767:7188" placeholder="{...}" />
-            <marker date="1354332477797" expanded="true" signature="7242:8327" placeholder="{...}" />
-            <marker date="1354332477797" expanded="true" signature="7284:7377" placeholder="{...}" />
-            <marker date="1354332477797" expanded="true" signature="7417:7508" placeholder="{...}" />
-            <marker date="1354332477797" expanded="true" signature="7513:7584" placeholder="{...}" />
-            <marker date="1354332477797" expanded="true" signature="7864:8300" placeholder="{...}" />
-            <marker date="1354332477797" expanded="true" signature="7904:8295" placeholder="{...}" />
-            <marker date="1354332477797" expanded="true" signature="8384:8666" placeholder="{...}" />
-            <marker date="1354332477797" expanded="true" signature="8740:9151" placeholder="{...}" />
-            <marker date="1354332477797" expanded="true" signature="9194:9264" placeholder="{...}" />
-          </folding>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImageTool.as">
+    <entry file="file://$PROJECT_DIR$/.idea/encodings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="175" column="18" selection-start="5190" selection-end="5190" vertical-scroll-proportion="5.2527647">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/flexCompiler.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/misc.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/modules.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ImageTool.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="28" selection-start="662" selection-end="662" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lz/iTool/ImageToolConfig.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="38" selection-start="631" selection-end="631" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lz/iTool/NativePng2atf.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="0" selection-start="456" selection-end="456" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lz/iTool/ImageTool.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="129" column="58" selection-start="3788" selection-end="3788" vertical-scroll-proportion="0.50086653">
           <folding>
-            <element signature="e#11#50#0" expanded="true" />
+            <element signature="e#20#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -708,7 +792,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>1.7</last-edited>
+          <last-edited>air37</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -744,6 +828,18 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <last-edited>MY_NAME</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

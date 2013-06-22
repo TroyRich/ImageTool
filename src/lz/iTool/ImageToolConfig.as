@@ -19,7 +19,7 @@ public class ImageToolConfig {
 	public static var DEF_OUTPUT:String="(url)/(name).(extension)";
 	public var formatIndex:int=0;
 	public var jxrQuantization:int=20;
-	public var quality:int=80;
+	public var jpgQuality:int=80;
 	public var option:ImageOption=new ImageOption();
 
 	public function ImageToolConfig() {
