@@ -21,6 +21,7 @@ public class NativePng2atf {
 	}
 
 	public function add(arg:String,input:File,output:String):void{
+		if(arg!="")arg=arg+" ";
 		waits.push(arg+"-i "+input.nativePath+" -o "+output);
 		if(log!=null){
 			log(waits[waits.length-1]);
@@ -32,7 +33,7 @@ public class NativePng2atf {
 			var info:NativeProcessStartupInfo=new NativeProcessStartupInfo();
 			info.executable=new File(png2atfUrl);
 			var line:String=waits.shift();
-			var linearr:Array=line.split(" ");
+			var linearr:Array=line.split(/\s+/g);
 			info.arguments=Vector.<String>(linearr);
 			var np:NativeProcess=new NativeProcess();
 			np.addEventListener(NativeProcessExitEvent.EXIT, np_exit);

@@ -127,7 +127,7 @@ public class ImageTool extends Sprite {
 		formatTab.getPanel(5).add(natfPng2atfUrl);
 		natfArg=new LabelInput("arg");
 		formatTab.getPanel(5).add(natfArg);
-		formatTab.getPanel(5).add(new Label("not implement"));
+		//formatTab.getPanel(5).add(new Label("not implement"));
 
 		dolayoutPanel(formatTab.getPanel(0));
 		dolayoutPanel(formatTab.getPanel(1));
