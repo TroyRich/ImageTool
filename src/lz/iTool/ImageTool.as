@@ -66,9 +66,9 @@ public class ImageTool extends Sprite {
 	private var jpgQ:LabelInput;
 	private var natfPng2atfUrl:LabelInput;
 	private var natfArg:LabelInput;
-
-
 	private var outputInput:LabelInput;
+
+	private var np2a:NativePng2atf;
     public function ImageTool() {
 		println("image tool v 0.1");
 		println("drag image file here");
@@ -157,6 +157,7 @@ public class ImageTool extends Sprite {
 			if(appConfig.hasOwnProperty("formatIndex"))selectPanelIndex(formatTab,appConfig.formatIndex);
 			if(appConfig.hasOwnProperty("jxrQuantization"))jxrQ.setValue(appConfig.jxrQuantization);
 			if(appConfig.hasOwnProperty("jpgQuality"))jpgQ.setValue(appConfig.jpgQuality);
+			if(appConfig.hasOwnProperty("natfPng2atfUrl"))natfPng2atfUrl.setValue(appConfig.natfPng2atfUrl);
 		}
 	}
 
@@ -174,6 +175,7 @@ public class ImageTool extends Sprite {
 		appConfig.formatIndex= getTabPanelIndex(formatTab);
 		appConfig.jxrQuantization= jxrQ.getValue();
 		appConfig.jpgQuality= jpgQ.getValue();
+		appConfig.natfPng2atfUrl= natfPng2atfUrl.getValue();
 		appConfigSB.flush();
 		println("app config saved");
 	}
@@ -254,29 +256,37 @@ public class ImageTool extends Sprite {
 			option.option=new EncodingOptions();
 			option.id=3;
 			option.extension="atf";
-		}else{//ajpg
+		}else if(i==4){//ajpg
 			var ajpgOption:JPEGEncoderOptions=new JPEGEncoderOptions();
 			option.option=ajpgOption;
 			option.extension="jpg";
 			option.id=4;
+		}else if(i==5){//natf
+			option.extension="atf";
+			option.id=5;
 		}
 		return option;
+	}
+
+	private function getCurrentConfig():ImageToolConfig{
+		var config:ImageToolConfig=new ImageToolConfig();
+		config.width=int(widthInput.getValue());
+		config.height=int(heightInput.getValue());
+		config.scaleX=Number(scaleXInput.getValue());
+		config.scaleY=Number(scaleYInput.getValue());
+		config.trim=isTrim.getToggle();
+		config.pow2=isPow2.getToggle();
+		config.pack=isPack.getToggle();
+		config.output=outputInput.getValue();
+		config.option=getOption();
+		return config;
 	}
 
 	private function bat_completeHandler(event:Event):void {
 		var bat:LoaderBat= event.currentTarget as LoaderBat;
 		var config:ImageToolConfig=(bat.userData as ImageToolConfig);
 		if(config==null){
-			config=new ImageToolConfig();
-			config.width=int(widthInput.getValue());
-			config.height=int(heightInput.getValue());
-			config.scaleX=Number(scaleXInput.getValue());
-			config.scaleY=Number(scaleYInput.getValue());
-			config.trim=isTrim.getToggle();
-			config.pow2=isPow2.getToggle();
-			config.pack=isPack.getToggle();
-			config.output=outputInput.getValue();
-			config.option=getOption();
+			config=getCurrentConfig();
 		}
 		var configImages:Vector.<ConfigImage>;
 		var area:int=0;
@@ -326,11 +336,28 @@ public class ImageTool extends Sprite {
 	}
 	private function doFiles(files:Object,fromDrag:Boolean,config:ImageToolConfig):void{
 		if(getTabPanelIndex(formatTab)==5){
-
+			var png2atfurl:String=natfPng2atfUrl.getValue();
+			var arg:String=natfArg.getValue();
+			if(png2atfurl==""){
+				println("error not have png2aft url");
+				return;
+			}
+			if(np2a==null||np2a.png2atfUrl!=png2atfurl)np2a=new NativePng2atf(png2atfurl,println);
+			if(config==null)config=getCurrentConfig();
+			for each(var file:File in files){
+				if(file.isDirectory){
+					continue;
+				}
+				if(file.extension=="itb"){
+					if(fromDrag)imageToolBat(bytes,file);
+				}else{
+					np2a.add(arg,file,config.getOutPutUrl(file,true));
+				}
+			}
 		}else{
 			var bat:LoaderBat=new LoaderBat();
 			bat.userData=config;
-			for each(var file:File in files){
+			for each(file in files){
 				if(file.isDirectory){
 					continue;
 				}
@@ -348,18 +375,12 @@ public class ImageTool extends Sprite {
 			bat.addEventListener(Event.COMPLETE, bat_completeHandler);
 			bat.start();
 		}
-
 	}
 
 	private function configSave(config:ImageToolConfig,file:File,bmd:BitmapData):void{
 		bmd=configImage(config,file,bmd).bmd;
-		var extension:String= file.extension;
-		var name:String = file.name.substr(0,file.name.length-extension.length-1);
+		var url:String=config.getOutPutUrl(file);
 		var bytes:ByteArray=encode(bmd,config);
-		var url:String=config.output;
-		url=url.replace(/\(url\)/g,file.parent.url);
-		url=url.replace(/\(name\)/g,name);
-		url=url.replace(/\(extension\)/g,config.option.extension);
 		save(bytes,url);
 		println("convert",file.name,url);
 	}
@@ -394,7 +415,6 @@ public class ImageTool extends Sprite {
 		}else{
 			bwt.rect = bmd.rect;
 		}
-
 		if(pow2){
 			bwt.rect.width=countPow2(bwt.rect.width);
 			bwt.rect.height=countPow2(bwt.rect.height);

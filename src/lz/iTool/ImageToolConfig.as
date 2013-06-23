@@ -6,6 +6,8 @@
  * To change this template use File | Settings | File Templates.
  */
 package lz.iTool {
+import flash.filesystem.File;
+
 public class ImageToolConfig {
 	public var input:String;
 	public var width:int=0;
@@ -23,6 +25,16 @@ public class ImageToolConfig {
 	public var option:ImageOption=new ImageOption();
 
 	public function ImageToolConfig() {
+	}
+
+	public function getOutPutUrl(file:File,nativePath:Boolean=false):String{
+		var extension:String= file.extension;
+		var name:String = file.name.substr(0,file.name.length-extension.length-1);
+		var url:String=output;
+		url=url.replace(/\(url\)/g,nativePath?file.parent.nativePath:file.parent.url);
+		url=url.replace(/\(name\)/g,name);
+		url=url.replace(/\(extension\)/g,option.extension);
+		return url;
 	}
 }
 }
