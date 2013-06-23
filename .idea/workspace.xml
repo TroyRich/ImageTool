@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" name="Default" comment="fds">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/lz/iTool/ImageTool.as" afterPath="$PROJECT_DIR$/src/lz/iTool/ImageTool.as" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/lz/iTool/NativePng2atf.as" afterPath="$PROJECT_DIR$/src/lz/iTool/NativePng2atf.as" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -14,14 +13,14 @@
     <file path="/ImageTool.as" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1371956028073" ignored="false" />
     <file path="/fragment.js2" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1371960337629" ignored="false" />
     <file path="/ImageOption.as" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1371727883552" ignored="false" />
-    <file path="/Dummy.txt" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1371960920969" ignored="false" />
+    <file path="/Dummy.txt" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1371961205993" ignored="false" />
     <file path="/index.html" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1371297520200" ignored="false" />
     <file path="/log.php" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1371283123971" ignored="false" />
     <file path="/BitmapDataWithTrimInfo.as" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1371433397762" ignored="false" />
     <file path="/ImageToolConfig.as" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1371954540331" ignored="false" />
     <file path="/ConfigImage.as" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1371695289180" ignored="false" />
     <file path="/a.dummy" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1371717630995" ignored="false" />
-    <file path="/NativePng2atf.as" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1371960985838" ignored="false" />
+    <file path="/NativePng2atf.as" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1371961242507" ignored="false" />
     <file path="/NativePng2atfOption.as" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1371900027993" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,6 +36,7 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -73,7 +73,6 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -95,7 +94,7 @@
       <file leaf-file-name="NativePng2atf.as" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/lz/iTool/NativePng2atf.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="4" selection-start="1344" selection-end="1344" vertical-scroll-proportion="0.7016949">
+            <state line="55" column="73" selection-start="1930" selection-end="1930" vertical-scroll-proportion="1.0789917">
               <folding />
             </state>
           </provider>
@@ -250,7 +249,7 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -331,19 +330,19 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="project.structure.last.edited" value="Modules" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="260" />
-    <property name="project.structure.proportion" value="0.15" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="267" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="260" />
-    <property name="MemberChooser.sorted" value="false" />
-    <property name="recentsLimit" value="5" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="recentsLimit" value="5" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="260" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../testflash" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="267" />
@@ -358,8 +357,8 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
     <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
@@ -416,6 +415,11 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
+    <configuration default="true" type="RemoteFlashRunConfigurationType" factoryName="Flash Remote Debug">
+      <option name="BCName" value="" />
+      <option name="moduleName" value="" />
+      <method />
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" />
       <option name="VM_PARAMETERS" />
@@ -428,11 +432,6 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="" />
       <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="RemoteFlashRunConfigurationType" factoryName="Flash Remote Debug">
-      <option name="BCName" value="" />
-      <option name="moduleName" value="" />
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
@@ -584,11 +583,11 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960895" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24986821" sideWeight="0.67486036" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13336848" sideWeight="0.6893855" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.06431207" sideWeight="0.69497204" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3731513" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31061453" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30502793" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -760,7 +759,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/lz/iTool/NativePng2atf.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="4" selection-start="1344" selection-end="1344" vertical-scroll-proportion="0.7016949">
+        <state line="55" column="73" selection-start="1930" selection-end="1930" vertical-scroll-proportion="1.0789917">
           <folding />
         </state>
       </provider>

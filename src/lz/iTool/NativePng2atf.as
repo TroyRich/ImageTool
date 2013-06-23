@@ -38,6 +38,7 @@ public class NativePng2atf {
 			var np:NativeProcess=new NativeProcess();
 			np.addEventListener(NativeProcessExitEvent.EXIT, np_exit);
 			np.addEventListener(ProgressEvent.STANDARD_OUTPUT_DATA, np_standardOutputData);
+			np.addEventListener(ProgressEvent.STANDARD_ERROR_DATA, np_standardErrorData);
 			np.start(info);
 			runningCounter++;
 		}
@@ -46,6 +47,13 @@ public class NativePng2atf {
 	{
 		var np:NativeProcess= e.currentTarget as NativeProcess;
 		var data:String = np.standardOutput.readMultiByte(np.standardOutput.bytesAvailable, "gb2312");
+		data = data.split("\r\n").join("\n");
+		if(log!=null)log(data);
+	}
+	private function np_standardErrorData(e:ProgressEvent):void
+	{
+		var np:NativeProcess= e.currentTarget as NativeProcess;
+		var data:String = np.standardError.readMultiByte(np.standardError.bytesAvailable, "gb2312");
 		data = data.split("\r\n").join("\n");
 		if(log!=null)log(data);
 	}
