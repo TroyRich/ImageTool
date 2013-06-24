@@ -12,7 +12,11 @@
           <sdk name="air37" />
         </dependencies>
         <compiler-options />
-        <packaging-air-desktop package-file-name="ImageTool" />
+        <packaging-air-desktop use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/ImageTool-app.xml" package-file-name="ImageTool">
+          <files-to-package>
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/bin" path-in-package="bin" />
+          </files-to-package>
+        </packaging-air-desktop>
         <packaging-android />
         <packaging-ios />
       </configuration>

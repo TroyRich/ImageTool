@@ -13,12 +13,16 @@ import flash.display.DisplayObject;
 import flash.display.DisplayObjectContainer;
 import flash.display.JPEGEncoderOptions;
 import flash.display.JPEGXREncoderOptions;
+import flash.display.NativeMenu;
+import flash.display.NativeMenuItem;
 import flash.display.NativeWindow;
 import flash.display.PNGEncoderOptions;
 import flash.display.Sprite;
 import flash.display.StageAlign;
+import flash.display.StageQuality;
 import flash.display.StageScaleMode;
 import flash.events.Event;
+import flash.events.MouseEvent;
 import flash.events.NativeDragEvent;
 import flash.filesystem.File;
 import flash.filesystem.FileMode;
@@ -27,6 +31,8 @@ import flash.geom.Matrix;
 import flash.geom.Point;
 import flash.geom.Rectangle;
 import flash.net.SharedObject;
+import flash.net.URLRequest;
+import flash.net.navigateToURL;
 import flash.text.TextField;
 import flash.utils.ByteArray;
 import flash.utils.describeType;
@@ -57,6 +63,7 @@ public class ImageTool extends Sprite {
 	private var scaleXInput:LabelInput;
 	private var scaleYInput:LabelInput;
 	private var isTrim:Checkbox;
+	private var isRelative:Checkbox;
 	private var isPow2:Checkbox;
 	private var isPack:Checkbox;
 	private var formatTab:TabPanel;
@@ -72,6 +79,14 @@ public class ImageTool extends Sprite {
     public function ImageTool() {
 		println("image tool v 0.1");
 		println("drag image file here");
+
+		if(NativeWindow.supportsMenu){
+			stage.nativeWindow.menu=new NativeMenu();
+			var item:NativeMenuItem= stage.nativeWindow.menu.addItem(new NativeMenuItem("help"));
+			item.addEventListener(Event.SELECT, item_selectHandler);
+		}
+		var menu:NativeMenu=new NativeMenu();
+		//stage.contextMenu.
 
 		stage.align=StageAlign.TOP_LEFT;
 		stage.scaleMode=StageScaleMode.NO_SCALE;
@@ -99,6 +114,8 @@ public class ImageTool extends Sprite {
 		isTrim=new Checkbox("trim");
 		isTrim.setToggle(true);
 		window.add(isTrim);
+		isRelative=new Checkbox("relative");
+		window.add(isRelative);
 		isPow2=new Checkbox("pow2");
 		window.add(isPow2);
 		isPack=new Checkbox("pack");
@@ -274,6 +291,7 @@ public class ImageTool extends Sprite {
 		config.height=int(heightInput.getValue());
 		config.scaleX=Number(scaleXInput.getValue());
 		config.scaleY=Number(scaleYInput.getValue());
+		config.relative=isRelative.getToggle();
 		config.trim=isTrim.getToggle();
 		config.pow2=isPow2.getToggle();
 		config.pack=isPack.getToggle();
@@ -319,8 +337,7 @@ public class ImageTool extends Sprite {
 		if(config.height!=0&&!config.pack)size.y=config.height;
 		if(config.scaleX!=0)size.x=Math.ceil(bmd.width*config.scaleX);
 		if(config.scaleY!=0)size.y=Math.ceil(bmd.height*config.scaleY);
-		bmd=resize(bmd,size);
-
+		bmd=resize(bmd,size,config.relative);
 		if(config.trim){
 			var bwt:BitmapDataWithTrimInfo=trim(bmd);
 			bmd=bwt.bmd;
@@ -402,9 +419,22 @@ public class ImageTool extends Sprite {
 		return bytes;
 	}
 
-	private function resize(bmd:BitmapData,size:Point):BitmapData{
+	private function resize(bmd:BitmapData,size:Point,relative:Boolean):BitmapData{
 		var bmd2:BitmapData=new BitmapData(size.x,size.y,bmd.transparent,0);
-		bmd2.draw(bmd, new Matrix(bmd2.width / bmd.width, 0, 0, bmd2.height / bmd.height), null, null, null, true);
+		var scaleX:Number=bmd2.width / bmd.width;
+		var scaleY:Number=bmd2.height / bmd.height;
+		var tx:Number=0;
+		var ty:Number=0;
+		if(relative){
+			if(scaleX>scaleY){
+				scaleX=scaleY;
+				tx=size.x/2-scaleX*bmd.width/2;
+			}else if(scaleX<scaleY){
+				scaleY=scaleX;
+				ty=size.y/2-scaleY*bmd.height/2;
+			}
+		}
+		bmd2.drawWithQuality(bmd,new Matrix(scaleX, 0, 0, scaleY,tx,ty),null, null, null, true,StageQuality.HIGH_16X16);
 		return bmd2;
 	}
 
@@ -421,7 +451,7 @@ public class ImageTool extends Sprite {
 		}
 		if(bwt.rect.width!=bmd.width||bwt.rect.height!=bmd.height){
 			bwt.bmd = new BitmapData(bwt.rect.width, bwt.rect.height, bmd.transparent, 0);
-			bwt.bmd.draw(bmd, new Matrix(1, 0, 0, 1, -bwt.rect.x, -bwt.rect.y),null,null,null,true);
+			bwt.bmd.drawWithQuality(bmd, new Matrix(1, 0, 0, 1, -bwt.rect.x, -bwt.rect.y),null,null,null,true,StageQuality.HIGH_16X16);
 		}else{
 			bwt.bmd=bmd;
 		}
@@ -487,7 +517,7 @@ public class ImageTool extends Sprite {
 	}
 
 	private function pow2(bmd:BitmapData):BitmapData{
-		return resize(bmd,new Point(countPow2(bmd.width),countPow2(bmd.height)));
+		return resize(bmd,new Point(countPow2(bmd.width),countPow2(bmd.height)),false);
 	}
 
 	private function countPow2(x:int):int{
@@ -554,6 +584,10 @@ public class ImageTool extends Sprite {
 		for each(var type:String in data){
 			doFiles(event.clipboard.getData(type),true,null);
 		}
+	}
+
+	private function item_selectHandler(event:Event):void {
+		navigateToURL(new URLRequest("http://matrix3d.github.io/ImageTool/"));
 	}
 }
 }

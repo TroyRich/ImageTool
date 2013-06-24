@@ -15,6 +15,7 @@ public class ImageToolConfig {
 	public  var scaleX:Number=0;
 	public var scaleY:Number=0;
 	public var trim:Boolean=false;
+	public var relative:Boolean=false;
 	public var pow2:Boolean=false;
 	public var pack:Boolean=false;
 	public var output:String=DEF_OUTPUT;

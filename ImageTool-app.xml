@@ -48,7 +48,7 @@
     <!-- Settings for the application's initial window. Required. -->
     <initialWindow>
         <!-- The main SWF or HTML file of the application. Required. -->
-        <content>ImageTool.swf</content>
+        <content>SWF file name is set automatically at compile time</content>
 
         <!-- The title of the main window. Optional. -->
         <!--<title></title>-->
@@ -144,6 +144,13 @@
         <image732x412></image732x412>
         <image1024x1024></image1024x1024>
     </icon>-->
+    <icon>
+        <image16x16>bin/icons/16.png</image16x16>
+        <image32x32>bin/icons/32.png</image32x32>
+        <image48x48>bin/icons/48.png</image48x48>
+        <image128x128>bin/icons/128.png</image128x128>
+    </icon>
+
 
     <!-- Whether the application handles the update when a user double-clicks an update version of the AIR file (true),
          or the default AIR application installer handles the update (false). Optional. Default false. -->
