@@ -20,6 +20,11 @@ public class ImageToolConfig {
 	public var pack:Boolean=false;
 	public var output:String=DEF_OUTPUT;
 	public static var DEF_OUTPUT:String="(url)/(name).(extension)";
+	public static var DEF_PACK_TEMPLATE:String=
+			"(fname).xml\n"+
+			"<TextureAtlas>\n" +
+			"<SubTexture name='(name)' fx='(fx)' fy='(fy)' x='(x)' y='(y)' width='(width)' height='(height)'/>\n"+
+			"</TextureAtlas>";
 	public var formatIndex:int=0;
 	public var jxrQuantization:int=20;
 	public var jpgQuality:int=80;

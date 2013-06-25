@@ -37,6 +37,10 @@ import flash.text.TextField;
 import flash.utils.ByteArray;
 import flash.utils.describeType;
 
+import lz.iTool.UIUtils;
+
+import lz.iTool.UIUtils;
+
 import lz.net.LoaderBat;
 import lz.net.LoaderCell;
 
@@ -44,6 +48,7 @@ import org.villekoskela.utils.RectanglePacker;
 
 import sliz.miniui.Button;
 import sliz.miniui.Checkbox;
+import sliz.miniui.Input;
 import sliz.miniui.Label;
 import sliz.miniui.LabelInput;
 import sliz.miniui.Panel;
@@ -54,6 +59,7 @@ import sliz.miniui.TabPanel;
 import sliz.miniui.Window;
 import sliz.miniui.layouts.BoxLayout;
 
+[SWF(width="800",height="600")]
 public class ImageTool extends Sprite {
 	private var bg:Panel;
 	private var outPut:TextField=new TextField();
@@ -66,6 +72,7 @@ public class ImageTool extends Sprite {
 	private var isRelative:Checkbox;
 	private var isPow2:Checkbox;
 	private var isPack:Checkbox;
+	private var packTemplate:LabelInput;
 	private var formatTab:TabPanel;
 	private var jxrQ:LabelInput;
 	private var jxrColorSpace:LabelInput;
@@ -120,9 +127,16 @@ public class ImageTool extends Sprite {
 		window.add(isPow2);
 		isPack=new Checkbox("pack");
 		window.add(isPack);
+		packTemplate=new LabelInput("packTemplate");
+		packTemplate.setValue(ImageToolConfig.DEF_PACK_TEMPLATE);
+		UIUtils.setLabelInput(packTemplate,250,80,true,true);
+		window.add(packTemplate);
 
 		outputInput=new LabelInput("output");
 		outputInput.setValue(ImageToolConfig.DEF_OUTPUT);
+		UIUtils.setLabelInput(outputInput,300,40,true,true);
+		//input. .multiline=true;
+		//input.height=200;
 		println("output","(url)","(name)","(extension)");
 		window.add(outputInput);
 
@@ -146,15 +160,15 @@ public class ImageTool extends Sprite {
 		formatTab.getPanel(5).add(natfArg);
 		//formatTab.getPanel(5).add(new Label("not implement"));
 
-		dolayoutPanel(formatTab.getPanel(0));
-		dolayoutPanel(formatTab.getPanel(1));
-		dolayoutPanel(formatTab.getPanel(2));
-		dolayoutPanel(formatTab.getPanel(3));
-		dolayoutPanel(formatTab.getPanel(4));
-		dolayoutPanel(formatTab.getPanel(5));
+		UIUtils.dolayoutPanel(formatTab.getPanel(0));
+		UIUtils.dolayoutPanel(formatTab.getPanel(1));
+		UIUtils.dolayoutPanel(formatTab.getPanel(2));
+		UIUtils.dolayoutPanel(formatTab.getPanel(3));
+		UIUtils.dolayoutPanel(formatTab.getPanel(4));
+		UIUtils.dolayoutPanel(formatTab.getPanel(5));
 		window.add(formatTab);
 		window.add(new Button("saveConfig",0,0,null,saveAppConfig),null,.5);
-		dolayoutPanel(window);
+		UIUtils.dolayoutPanel(window);
 
 		fromAppConfig();
 	}
@@ -171,7 +185,7 @@ public class ImageTool extends Sprite {
 			if(appConfig.hasOwnProperty("pow2"))isPack.setToggle(appConfig.pow2);
 			if(appConfig.hasOwnProperty("pack"))isPack.setToggle(appConfig.pack);
 			if(appConfig.hasOwnProperty("output"))outputInput.setValue(appConfig.output);
-			if(appConfig.hasOwnProperty("formatIndex"))selectPanelIndex(formatTab,appConfig.formatIndex);
+			if(appConfig.hasOwnProperty("formatIndex"))UIUtils.selectPanelIndex(formatTab,appConfig.formatIndex);
 			if(appConfig.hasOwnProperty("jxrQuantization"))jxrQ.setValue(appConfig.jxrQuantization);
 			if(appConfig.hasOwnProperty("jpgQuality"))jpgQ.setValue(appConfig.jpgQuality);
 			if(appConfig.hasOwnProperty("natfPng2atfUrl"))natfPng2atfUrl.setValue(appConfig.natfPng2atfUrl);
@@ -189,7 +203,7 @@ public class ImageTool extends Sprite {
 		appConfig.pow2= isPack.getToggle();
 		appConfig.pack= isPack.getToggle();
 		appConfig.output= outputInput.getValue();
-		appConfig.formatIndex= getTabPanelIndex(formatTab);
+		appConfig.formatIndex= UIUtils.getTabPanelIndex(formatTab);
 		appConfig.jxrQuantization= jxrQ.getValue();
 		appConfig.jpgQuality= jpgQ.getValue();
 		appConfig.natfPng2atfUrl= natfPng2atfUrl.getValue();
@@ -249,7 +263,7 @@ public class ImageTool extends Sprite {
 
 	private function getOption():ImageOption{
 		var option:ImageOption=new ImageOption();
-		var i:int=getTabPanelIndex(formatTab);
+		var i:int=UIUtils.getTabPanelIndex(formatTab);
 		if(i==0){//jxr
 			var jxrOption:JPEGXREncoderOptions=new JPEGXREncoderOptions();
 			jxrOption.quantization=Number(jxrQ.getValue());
@@ -352,7 +366,7 @@ public class ImageTool extends Sprite {
 		return configImage;
 	}
 	private function doFiles(files:Object,fromDrag:Boolean,config:ImageToolConfig):void{
-		if(getTabPanelIndex(formatTab)==5){
+		if(UIUtils.getTabPanelIndex(formatTab)==5){
 			var png2atfurl:String=natfPng2atfUrl.getValue();
 			var arg:String=natfArg.getValue();
 			if(png2atfurl==""){
@@ -545,33 +559,6 @@ public class ImageTool extends Sprite {
 	private  function println(...txt):void{
 		outPut.appendText(txt+"\n");
 		outPut.scrollV=outPut.maxScrollV;
-	}
-
-	private function getTabPanelIndex(panel:TabPanel):int{
-		var i:int=-1;
-		var child:Panel;
-		while((child = panel.getPanel(++i))!=null){
-			if(child.parent)break;
-		}
-		return i;
-	}
-
-	private function selectPanelIndex(panel:TabPanel,index:int):void{
-		var tabbar:TabBar;
-		for(var i:int=0;i<panel.numChildren;i++){
-			var child:DisplayObject = panel.getChildAt(i);
-			if(child is TabBar){
-				tabbar=child as TabBar;
-			}
-		}
-		if(tabbar){
-			tabbar.select(index);
-		}
-	}
-
-	private function dolayoutPanel(panel:Panel):void{
-		panel.setLayout(new BoxLayout(panel,BoxLayout.Y_AXIS,5));
-		panel.doLayout();
 	}
 
 	private function nativeDragEnterHandler(event:NativeDragEvent):void {
