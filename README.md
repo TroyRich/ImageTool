@@ -13,4 +13,10 @@ feature
 5. scale
 6. resize
 7. bat file
+8. support win,mac,linux
+
+download installer
+-----------------
+[download](https://github.com/matrix3d/ImageTool/blob/master/out/production/ImageTool/ImageTool.exe?raw=true)
+
 
