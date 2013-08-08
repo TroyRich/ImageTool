@@ -17,6 +17,7 @@ feature
 
 download installer
 -----------------
-[download](https://github.com/matrix3d/ImageTool/blob/master/out/production/ImageTool/ImageTool.exe?raw=true)
+[win](https://github.com/matrix3d/ImageTool/blob/master/out/production/ImageTool/ImageTool.exe?raw=true)
+[all platform](https://github.com/matrix3d/ImageTool/blob/master/out/production/ImageTool/ImageTool.air?raw=true)
 
 
