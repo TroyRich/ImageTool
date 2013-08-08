@@ -5,21 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" name="Default" comment="fds">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/lz/iTool/ConfigImage.as" afterPath="$PROJECT_DIR$/src/lz/iTool/ConfigImage.as" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/lz/iTool/ImageTool.as" afterPath="$PROJECT_DIR$/src/lz/iTool/ImageTool.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ImageTool.iml" afterPath="$PROJECT_DIR$/ImageTool.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/lz/iTool/ImageToolConfig.as" afterPath="$PROJECT_DIR$/src/lz/iTool/ImageToolConfig.as" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ImageTool.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/ImageTool.as" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1372127209531" ignored="false" />
-    <file path="/fragment.js2" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1372124930621" ignored="false" />
+    <file path="/ImageTool.as" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1375931219983" ignored="false" />
+    <file path="/fragment.js2" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1375928371175" ignored="false" />
     <file path="/ImageOption.as" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1371727883552" ignored="false" />
-    <file path="/Dummy.txt" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1372127997609" ignored="false" />
+    <file path="/Dummy.txt" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1375928319245" ignored="false" />
     <file path="/index.html" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1371974775618" ignored="false" />
     <file path="/log.php" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1371283123971" ignored="false" />
     <file path="/BitmapDataWithTrimInfo.as" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1371433397762" ignored="false" />
-    <file path="/ImageToolConfig.as" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1372127100484" ignored="false" />
-    <file path="/ConfigImage.as" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1371695289180" ignored="false" />
+    <file path="/ImageToolConfig.as" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1375928768535" ignored="false" />
+    <file path="/ConfigImage.as" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1375930363472" ignored="false" />
     <file path="/a.dummy" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1371717630995" ignored="false" />
     <file path="/NativePng2atf.as" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1371961242507" ignored="false" />
     <file path="/NativePng2atfOption.as" changelist="0ab9e4fa-049d-40e1-8c6c-5b70429d3f1e" time="1371900027993" ignored="false" />
@@ -39,7 +41,6 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -76,6 +77,7 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -85,19 +87,39 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ImageTool.as" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="ImageTool.as" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/lz/iTool/ImageTool.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="131" column="48" selection-start="3875" selection-end="3875" vertical-scroll-proportion="0.0">
+            <state line="512" column="13" selection-start="16959" selection-end="16959" vertical-scroll-proportion="0.06901218">
+              <folding>
+                <element signature="e#20#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BitmapDataWithTrimInfo.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/lz/iTool/BitmapDataWithTrimInfo.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="13" selection-start="274" selection-end="274" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ImageToolConfig.as" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/lz/iTool/ImageToolConfig.as">
+      <file leaf-file-name="ConfigImage.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/lz/iTool/ConfigImage.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="30" selection-start="848" selection-end="848" vertical-scroll-proportion="0.2922636">
+            <state line="16" column="11" selection-start="410" selection-end="410" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sheet.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/desktop/sheet.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="15" selection-start="474" selection-end="474" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -130,10 +152,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="library.swf" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://D:/Program Files/adobe/air37/frameworks/libs/air/airglobal.swc!/library.swf">
+      <file leaf-file-name="ImageToolConfig.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/lz/iTool/ImageToolConfig.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6107" column="25" selection-start="264592" selection-end="264592" vertical-scroll-proportion="0.0">
+            <state line="25" column="14" selection-start="724" selection-end="826" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -158,7 +180,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/Test.as" />
         <option value="$PROJECT_DIR$/src/Test.js" />
         <option value="$PROJECT_DIR$/src/T.as" />
         <option value="$PROJECT_DIR$/src/lz/iTool/BitmapDataWithTrimInfo.as" />
@@ -172,8 +193,9 @@
         <option value="$PROJECT_DIR$/ImageTool-app.xml" />
         <option value="$PROJECT_DIR$/src/lz/iTool/itPlugins/AbsPlugin.as" />
         <option value="$PROJECT_DIR$/src/lz/iTool/UIUtils.as" />
-        <option value="$PROJECT_DIR$/src/lz/iTool/ImageTool.as" />
         <option value="$PROJECT_DIR$/src/lz/iTool/ImageToolConfig.as" />
+        <option value="$PROJECT_DIR$/src/lz/iTool/ConfigImage.as" />
+        <option value="$PROJECT_DIR$/src/lz/iTool/ImageTool.as" />
       </list>
     </option>
   </component>
@@ -225,6 +247,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -291,22 +315,20 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="project.structure.last.edited" value="Modules" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="260" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="267" />
     <property name="project.structure.proportion" value="0.15" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="267" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
-    <property name="recentsLimit" value="5" />
-    <property name="MemberChooser.sorted" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="260" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="recentsLimit" value="5" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/bin" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="267" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="1060" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="1060" />
@@ -319,8 +341,8 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
@@ -378,11 +400,6 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
-    <configuration default="true" type="RemoteFlashRunConfigurationType" factoryName="Flash Remote Debug">
-      <option name="BCName" value="" />
-      <option name="moduleName" value="" />
-      <method />
-    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" />
       <option name="VM_PARAMETERS" />
@@ -395,6 +412,11 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="" />
       <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="RemoteFlashRunConfigurationType" factoryName="Flash Remote Debug">
+      <option name="BCName" value="" />
+      <option name="moduleName" value="" />
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
@@ -541,16 +563,17 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17988826" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.110738255" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.45027933" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960895" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24986821" sideWeight="0.67486036" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.11808118" sideWeight="0.81005585" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16609783" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.11953042" sideWeight="0.8847875" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16856492" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18994413" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.11521253" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -621,15 +644,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="34" />
+      <option name="time" value="35" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.idea/compiler.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/encodings.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
@@ -665,21 +683,9 @@
         <state line="243" column="19" selection-start="4913" selection-end="4913" vertical-scroll-proportion="11.233577" />
       </provider>
     </entry>
-    <entry file="file://F:/e/wg/log/bin/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="289" column="12" selection-start="7316" selection-end="7316" vertical-scroll-proportion="6.2566586" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ImageTool-app.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="133" column="33" selection-start="6782" selection-end="6782" vertical-scroll-proportion="0.37096775">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/Program Files/adobe/air37/frameworks/libs/air/airglobal.swc!/library.swf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6107" column="25" selection-start="264592" selection-end="264592" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -698,13 +704,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/lz/iTool/ImageTool.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="131" column="48" selection-start="3875" selection-end="3875" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/lz/iTool/UIUtils.as">
       <provider selected="true" editor-type-id="text-editor">
         <state line="53" column="28" selection-start="1393" selection-end="1393" vertical-scroll-proportion="0.0">
@@ -714,8 +713,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/lz/iTool/ImageToolConfig.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="30" selection-start="848" selection-end="848" vertical-scroll-proportion="0.2922636">
+        <state line="25" column="14" selection-start="724" selection-end="826" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/desktop/sheet.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="15" selection-start="474" selection-end="474" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lz/iTool/ConfigImage.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="11" selection-start="410" selection-end="410" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lz/iTool/BitmapDataWithTrimInfo.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="13" selection-start="274" selection-end="274" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lz/iTool/ImageTool.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="512" column="13" selection-start="16959" selection-end="16959" vertical-scroll-proportion="0.06901218">
+          <folding>
+            <element signature="e#20#39#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -725,6 +754,18 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -747,7 +788,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>air37</last-edited>
+          <last-edited>1.6</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

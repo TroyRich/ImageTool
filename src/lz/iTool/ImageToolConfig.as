@@ -25,6 +25,7 @@ public class ImageToolConfig {
 			"<TextureAtlas>\n" +
 			"<SubTexture name='(name)' fx='(fx)' fy='(fy)' x='(x)' y='(y)' width='(width)' height='(height)'/>\n"+
 			"</TextureAtlas>";
+	public var packTemplate:String;
 	public var formatIndex:int=0;
 	public var jxrQuantization:int=20;
 	public var jpgQuality:int=80;

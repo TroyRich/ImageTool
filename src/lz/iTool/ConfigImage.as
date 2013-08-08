@@ -13,5 +13,7 @@ public class ConfigImage {
 	public var bmd:BitmapData;
 	public var file:File;
 	public var config:ImageToolConfig;
+	public var fx:Number=0;
+	public var fy:Number=0;
 }
 }

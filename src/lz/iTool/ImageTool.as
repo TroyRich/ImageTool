@@ -311,6 +311,7 @@ public class ImageTool extends Sprite {
 		config.pack=isPack.getToggle();
 		config.output=outputInput.getValue();
 		config.option=getOption();
+		config.packTemplate=packTemplate.getValue();
 		return config;
 	}
 
@@ -352,14 +353,16 @@ public class ImageTool extends Sprite {
 		if(config.scaleX!=0)size.x=Math.ceil(bmd.width*config.scaleX);
 		if(config.scaleY!=0)size.y=Math.ceil(bmd.height*config.scaleY);
 		bmd=resize(bmd,size,config.relative);
+		var configImage:ConfigImage=new ConfigImage();
 		if(config.trim){
 			var bwt:BitmapDataWithTrimInfo=trim(bmd);
 			bmd=bwt.bmd;
+			configImage.fx=bwt.rect.x;
+			configImage.fy=bwt.rect.y;
 		}
 		if(config.pow2&&!config.pack){
 			bmd=pow2(bmd);
 		}
-		var configImage:ConfigImage=new ConfigImage();
 		configImage.config=config;
 		configImage.bmd=bmd;
 		configImage.file=file;
@@ -512,7 +515,10 @@ public class ImageTool extends Sprite {
 		rp.packRectangles();
 		var bmd:BitmapData=new BitmapData(pw,ph,true,0);
 		bmd.lock();
+
+
 		var rect:Rectangle = new Rectangle();
+		var dlines:Array=[];
 		for (i = 0; i < rp.rectangleCount; i++)
 		{
 			rp.getRectangle(i, rect);
@@ -520,7 +526,16 @@ public class ImageTool extends Sprite {
 			ci=configImages[index];
 			vs=vss[index];
 			bmd.setVector(rect,vs);
+			dlines.push({name:ci.file.name,data:"<SubTexture name='"+ci.file.name+"' fx='"+ci.fx+"' fy='"+ci.fy+"' x='"+rect.x+"' y='"+rect.y+"' width='"+rect.width+"' height='"+rect.height+"'/>\r\n"});
 		}
+		dlines.sortOn("name");
+		var lines:Array=config.packTemplate.split("\r\n");
+		var line2:String=lines[2];
+		var outdata:String="<TextureAtlas>\r\n";
+		for each(var dline:Object in dlines){
+			outdata+=dline.data;
+		}
+		outdata+="</TextureAtlas>";
 		if(config.width>0&&config.height>0){
 
 		}else{
@@ -528,6 +543,7 @@ public class ImageTool extends Sprite {
 		}
 		bmd.unlock();
 		save(encode(bmd,config),parentFile.url+"/sheet."+config.option.extension);
+		saveTxt(outdata,parentFile.url+"/sheet.xml");
 	}
 
 	private function pow2(bmd:BitmapData):BitmapData{
@@ -547,6 +563,14 @@ public class ImageTool extends Sprite {
 		var fs:FileStream=new FileStream();
 		fs.open(file,FileMode.WRITE);
 		fs.writeBytes(bytes);
+		fs.close();
+	}
+
+	private function saveTxt(txt:String,url:String):void{
+		var file:File=new File(url);
+		var fs:FileStream=new FileStream();
+		fs.open(file,FileMode.WRITE);
+		fs.writeMultiByte(txt,"utf-8");
 		fs.close();
 	}
 
